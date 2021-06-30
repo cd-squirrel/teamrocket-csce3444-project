@@ -1,23 +1,25 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
 //vars for database connection
 const mongoose = require('mongoose');
 require('dotenv/config');
 const m = new mongoose.Mongoose( { useUnifiedTopology: true } );
 
-var app = express();
+const app = express();
 
 m.connect(
   process.env.DB_CONNECTION, 
   { useNewUrlParser: true }, 
   () => console.log('connected to DB!'));
+
+app.listen(3001, () => console.log('Server started . . .'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
