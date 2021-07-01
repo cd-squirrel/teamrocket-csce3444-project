@@ -6,18 +6,30 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const users = require('./routes/api/users');
 
 //vars for database connection
 const mongoose = require('mongoose');
 require('dotenv/config');
-const m = new mongoose.Mongoose( { useUnifiedTopology: true } );
+//const m = new mongoose.Mongoose( { useUnifiedTopology: true } );
 
 const app = express();
 
-m.connect(
-  process.env.DB_CONNECTION, 
-  { useNewUrlParser: true }, 
-  () => console.log('connected to DB!'));
+//connect to db
+const connectDB = async () => {
+  try {
+      await mongoose.connect(process.env.DB_CONNECTION, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+      });
+
+      console.log('MongoDB connected!!');
+  } catch (err) {
+      console.log('Failed to connect to MongoDB', err);
+  }
+};
+
+connectDB();
 
 app.listen(3001, () => console.log('Server started . . .'));
 
@@ -25,6 +37,7 @@ app.listen(3001, () => console.log('Server started . . .'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -32,7 +45,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
+
+app.use('/api/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
