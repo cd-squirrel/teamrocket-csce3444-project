@@ -16,21 +16,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// @route   Post api/users
-// @desc    Create a user
-// @access  Public
-router.post('/', async (req, res) => {
-    try {
-      const newUser = new User({
-        user: req.body.user,
-        pass: req.body.pass
-      });
-
-      await newUser.save().then(user => res.json(user));
-    } catch(err) {
-        console.log(err);
-    }
-});
 
 // @route   Delete api/users/:id
 // @desc    Delete a user
