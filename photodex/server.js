@@ -4,15 +4,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-//const usersRouter = require('./routes/users');
-const register = require('./routes/api/register');
-const users = require('./routes/api/users');
+const authRoute = require('./routes/api/auth');
+const postRoute = require('./routes/api/posts');
+const listUsersRoute = require('./routes/api/users');
 
 //vars for database connection
 const mongoose = require('mongoose');
 require('dotenv/config');
-//const m = new mongoose.Mongoose( { useUnifiedTopology: true } );
 
 const app = express();
 
@@ -34,10 +32,6 @@ connectDB();
 
 app.listen(3001, () => console.log('Server started . . .'));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
 //middleware
 app.use(logger('dev'));
 app.use(express.json());
@@ -45,11 +39,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-//app.use('/users', usersRouter);
-
-app.use('/api/users', users);
-app.use('/api/register', register);
+app.use('/api/users', listUsersRoute);
+app.use('/api/user', authRoute);
+app.use('/api/posts', postRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
