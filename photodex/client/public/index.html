@@ -40,9 +40,6 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
       You can add webfonts, meta tags, or analytics to this file.
       The build step will place the bundled scripts into the <body> tag.
 
@@ -86,22 +83,32 @@
 
     <!-- Page Container -->
     <div class="container-fluid">
-      <!-- Main column where stuff goes -->
-      <dev class="col"> 
       
-        <!-- Images -->
+      <!-- Main column where stuff goes -->
+
         <dev class="row" id ="album">
 
           <div class="column-fluid">
+            <!-- About section -->
+            <div class="row" id="about">
+              <div class="col-3">
+                <p> More stuff can go here.</p>
+              </div>
 
+              <div class="col-9">
+                <p>Test test.</p>
+              </div>
+            </div>
+
+            <!-- Album Title -->
             <h2>Photo Album</h2>
-
+            <!-- Album Description -->
             <p>
               Test photo album below.
             </p>
+
             <!-- Album View -->
             <!-- This part needs a lot of work so that it can show many random images -->
-
             <div class="row">
               <!-- Top left photo -->
               <div class="col-6">
@@ -118,28 +125,25 @@
                   </div>
               </div>
             </div>
-
-          <!-- Bottom row -->
-          <div class="row">
-              <!-- Bottom left photo -->
-              <div class="col-6">
-                  <div class="thumbnail">
-                      <img src="example_images/20171118_200430.jpg" class="img-fluid">
-                  </div>
-              </div>
-              <!-- Bottom right photo -->
-              <div class="col-6">
-                  <div class="thumbnail">
-                      <img src="example_images/fenneko hacker.gif" class="img-fluid">
-                  </div>
-              </div>
-          </div>
+            <!-- Bottom row -->
+            <div class="row">
+                <!-- Bottom left photo -->
+                <div class="col-6">
+                    <div class="thumbnail">
+                        <img src="example_images/20171118_200430.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <!-- Bottom right photo -->
+                <div class="col-6">
+                    <div class="thumbnail">
+                        <img src="example_images/fenneko hacker.gif" class="img-fluid">
+                    </div>
+                </div>
+            </div>
 
           </div>
 
         </dev>
-
-      </dev>
     </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
