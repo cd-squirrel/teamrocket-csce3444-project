@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 
+// Needs verification, delete albums and photos
 // @route   Delete api/users/:id
 // @desc    Delete a user
 // @access  Public

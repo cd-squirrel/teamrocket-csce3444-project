@@ -21,5 +21,16 @@ const loginValidation = data => {
     return schema.validate(data);
 }
 
+// New album validation
+const albumValidation = data => {
+    const schema = Joi.object({
+        name: Joi.string().required(),
+        description: Joi.string()
+    })
+
+    return schema.validate(data);
+};
+
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
+module.exports.albumValidation = albumValidation;
