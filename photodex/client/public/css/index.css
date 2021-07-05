@@ -32,5 +32,34 @@ img {
 
 /* Space out the photos in our gallery a little. */
 .thumbnail {
-    margin: 4%;
+    margin: 1%;
+    object-fit: cover;
+    float: left;
+
+}
+
+div {  
+    text-align: center;  
+}  
+
+#end-of-page {
+    background-image: radial-gradient(#404040, #202020);
+}
+
+#register-page {
+    margin-top: 25%;
+    
+}
+.navbar-brand {
+    font-weight: bold;
+    padding-left: 12%;
+}
+
+.col.main {
+    background-color: white;
+    box-shadow: 0 0 50px rgba(17,17,17,0.5);
+}
+
+.row.section {
+    padding: 1%;
 }
