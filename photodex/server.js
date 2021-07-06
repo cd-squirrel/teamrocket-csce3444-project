@@ -1,7 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const authRoute = require('./routes/api/auth');
@@ -36,12 +35,11 @@ app.listen(3001, () => console.log('Server started . . .'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/users', listUsersRoute);
-app.use('/api/user', authRoute);
-app.use('/api/posts', postRoute);
+app.use('/api/', authRoute);
+app.use('/api/post', postRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

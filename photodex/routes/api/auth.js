@@ -1,9 +1,23 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+
+require('dotenv/config');
 
 const User = require('../../models/User');
 const { registerValidation, loginValidation } = require('../../validation');
+
+// middleware
+router.use(cookieParser());
+
+// function: create json webtoken
+const maxAge = 86400; //1 day in seconds
+const createToken = (id) => {
+    return jwt.sign({ id }, process.env.TOKEN_SECRET, {
+        expiresIn: maxAge
+    });
+};
 
 // Register
 router.post('/register', async (req, res) => {
@@ -27,7 +41,9 @@ router.post('/register', async (req, res) => {
     });
     try {
         const savedUser = await user.save();
-        res.send({user: user._id});
+        const token = createToken(user._id);
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000});
+        res.status(201).send(savedUser);
     } catch(err) {
         res.status(400).send(err);
     }
@@ -49,7 +65,9 @@ router.post('/login', async (req, res) => {
     if(!validPass) return res.status(400).send('Invalid password');
 
     //create and assign token
-    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+    const token = jwt.sign(
+        { _id: user._id, expiresIn: '1h' }, 
+        process.env.TOKEN_SECRET);
     res.header('auth-token', token).send(token);
 
     //res.send('Logged in!');
@@ -57,6 +75,24 @@ router.post('/login', async (req, res) => {
 
 })
 
-// Delete user
+// Logout
+router.get('/logout', (req, res) => {
+
+    //create and send token expiring in 1 ms
+    //then redirect to homepage
+    try {
+        const token = jwt.sign(
+            { expiresIn: 1 }, 
+            process.env.TOKEN_SECRET);
+        res.header('auth-token', token).send(token);
+        res.end();
+        res.redirect('/');
+        
+
+    } catch(err) {
+        res.status(400).send(err);
+    }
+    
+});
 
 module.exports = router;

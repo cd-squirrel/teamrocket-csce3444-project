@@ -89,35 +89,61 @@
         <h1>Welcome!</h1>
         <h2>Enter registration information below</h2>
         <form id="reg-form">
-          <input type="text" id="username" placeholder="Username" \>
-          <input type="password" id="password" placeholder="Password" \>
-          <input type="submit" value="Submit Form" \>
+          <input type="text" id="username" placeholder="Username" required\>
+          <div class="username error"></div>
+          <input type="password" id="password" placeholder="Password" required\>
+          <div class="password error"></div>
+          <input type="submit" value="Register" \>
     
         </form>
     
         <script>
-          const form = document.getElementById('reg-form')
-          form.addEventListener('submit', registerUser)
+          const form = document.getElementById('reg-form');
+          const usernameError = document.querySelector('.username.error');
+          const passwordError = document.querySelector('.password.error');
+
+          form.addEventListener('submit', async (event) => {
+
+            event.preventDefault();
+
+            //reset errors
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+
+            const username = form.username.value;
+            const password = form.password.value;
+
+            try {
+              const result = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: 
+                  JSON.stringify({username, password})
+              });
+
+              //need to check and display validation errors
+              //does not like result.json()
+              // SyntaxError: The string did not match the expected pattern.
+
+              //const data = await result.json();
+              //console.log('status: ', result.status);
+              //console.log(data);
+
+              /*if (data.errors) {
+                usernameError.textContent = data.errors.username;
+                passwordError.textContent = data.errors.password;
+              }
+              if (data.user) {
+                location.assign('/');
+              }*/
+
+            } catch(err) {
+              console.log(err);
+            }
+          });
     
-          async function registerUser(event)
-          {
-            event.preventDefault()
-            const username = document.getElementById('username').value
-            const password = document.getElementById('password').value
-          
-            const result = await fetch('/api/register', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                username,
-                password
-              })
-            }).then((res) => res.json())
-    
-            console.log(result)
-          }
         </script>
         <br>
         <br>
