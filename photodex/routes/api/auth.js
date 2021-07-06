@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
 
     //validate
     const { error } = registerValidation(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    if(error) return res.status(400).json(error.details[0].message);
 
     //check if username exists
     const usernameExist = await User.findOne({username: req.body.username});
@@ -43,9 +43,9 @@ router.post('/register', async (req, res) => {
         const savedUser = await user.save();
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000});
-        res.status(201).send(savedUser);
+        res.status(201).json({login: true});
     } catch(err) {
-        res.status(400).send(err);
+        res.status(400).json({err});
     }
 });
 
@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
 
     //validate
     const { error } = loginValidation(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    if(error) return res.status(400).json(error.details[0].message); 
 
     //check if username exists
     const user = await User.findOne({ username: req.body.username });
@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign(
         { _id: user._id, expiresIn: '1h' }, 
         process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token);
+    res.header('auth-token', token).json({login: true});
 
     //res.send('Logged in!');
     res.end();

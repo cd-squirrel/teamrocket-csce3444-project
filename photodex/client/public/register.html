@@ -127,17 +127,17 @@
               //does not like result.json()
               // SyntaxError: The string did not match the expected pattern.
 
-              //const data = await result.json();
+              const data = await result.json();
               //console.log('status: ', result.status);
-              //console.log(data);
+              console.log(data);
 
-              /*if (data.errors) {
-                usernameError.textContent = data.errors.username;
-                passwordError.textContent = data.errors.password;
-              }
-              if (data.user) {
+              if (data.login) {
                 location.assign('/');
-              }*/
+              }
+              else {
+                usernameError.textContent = data;
+                passwordError.textContent = data;
+              }
 
             } catch(err) {
               console.log(err);
