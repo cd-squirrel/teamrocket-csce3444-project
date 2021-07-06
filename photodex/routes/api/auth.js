@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
 
     //check if username exists
     const usernameExist = await User.findOne({username: req.body.username});
-    if(usernameExist) return res.status(400).send('Username taken');
+    if(usernameExist) return res.status(400).json('username already exists');
 
     //hash password
     const salt = await bcrypt.genSalt(10);
@@ -58,17 +58,16 @@ router.post('/login', async (req, res) => {
 
     //check if username exists
     const user = await User.findOne({ username: req.body.username });
-    if(!user) return res.status(400).send('Username not found');
+    if(!user) return res.status(400).json('username not found');
 
     //check if password is correct
     const validPass = await bcrypt.compare(req.body.password, user.password);
-    if(!validPass) return res.status(400).send('Invalid password');
+    if(!validPass) return res.status(400).json('invalid password');
 
     //create and assign token
-    const token = jwt.sign(
-        { _id: user._id, expiresIn: '1h' }, 
-        process.env.TOKEN_SECRET);
-    res.header('auth-token', token).json({login: true});
+    const token = createToken(user._id);
+    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000});
+    res.status(201).json({login: true});
 
     //res.send('Logged in!');
     res.end();

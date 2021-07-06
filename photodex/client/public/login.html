@@ -102,6 +102,13 @@
           const usernameError = document.querySelector('.username.error');
           const passwordError = document.querySelector('.password.error');
 
+          const handleErrors = (data) => {
+            if (data.includes('username')) 
+              return usernameError.textContent = data;
+            else  
+              return passwordError.textContent = data;
+          };
+
           form.addEventListener('submit', async (event) => {
 
             event.preventDefault();
@@ -130,8 +137,7 @@
                 location.assign('/');
               }
               else {
-                usernameError.textContent = data;
-                passwordError.textContent = data;
+                handleErrors(data);
               }
 
             } catch(err) {
