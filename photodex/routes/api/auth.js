@@ -77,21 +77,10 @@ router.post('/login', async (req, res) => {
 // Logout
 router.get('/logout', (req, res) => {
 
-    //create and send token expiring in 1 ms
+    //create and send cookie expiring in 1 ms
     //then redirect to homepage
-    try {
-        const token = jwt.sign(
-            { expiresIn: 1 }, 
-            process.env.TOKEN_SECRET);
-        res.header('auth-token', token).send(token);
-        res.end();
-        res.redirect('/');
-        
-
-    } catch(err) {
-        res.status(400).send(err);
-    }
-    
+    res.cookie('jwt', '', { maxAge: 1});
+    res.redirect('/');
 });
 
 module.exports = router;
