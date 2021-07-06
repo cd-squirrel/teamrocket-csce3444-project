@@ -65,7 +65,23 @@
                 <a class="nav-link" href="login.html">Log in</a>
             </li>
               <li class="nav-item">
-                  <a class="nav-link" href="logout.html">Log Out</a>
+                  <a class="nav-link" href="#" onclick="logout()">Log Out</a>
+                  <script>
+                    const logout = async () => {
+                      try {
+                        const res = await fetch('/api/logout', {
+                          method: 'GET',
+                          headers: {
+                            'Content-Type': 'application/json'
+                          }
+                        });
+                      } catch(err) {
+                        console.log(err);
+                      }
+  
+                      location.assign('/');
+                    };
+                  </script>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="register.html">Register</a>
