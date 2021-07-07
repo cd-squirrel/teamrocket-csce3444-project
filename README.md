@@ -2,6 +2,13 @@
 ### Introduction
 This is a photo gallery website!
 
+## Functional Features
+- Screen-scaling
+- Image gallery
+- Login System
+- Registration
+- Album View
+
 ## Setup
 
 ### To install backend dependencies (in photodex):
