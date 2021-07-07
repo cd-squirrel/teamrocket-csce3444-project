@@ -1,6 +1,6 @@
 # teamrocket-csce3444-project
 ### Introduction
-This is a photo gallery website!
+This is a photo gallery website made by us, Team Rocket.
 
 ## Functional Features
 - Screen-scaling
