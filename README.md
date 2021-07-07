@@ -1,8 +1,14 @@
 # teamrocket-csce3444-project
 ### Introduction
-Hi!
-## This is a project!
-Wow!
+This is a photo gallery website made by us, Team Rocket.
+
+## Functional Features
+- Screen-scaling
+- Image gallery
+- Login System
+- Registration
+- Album View
+
 ## Setup
 
 ### To install backend dependencies (in photodex):
