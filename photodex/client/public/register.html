@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-    <title>Photodex</title>
+    <title>PhotoDex</title>
     <link rel="stylesheet" href="css/index.css" type="text/css">
 
     <!-- Below is a bunch of stuff that came with our utilities/software. -->
@@ -119,10 +119,11 @@
           const passwordError = document.querySelector('.password.error');
 
           const handleErrors = (data) => {
-            if (data.includes('username')) 
-              return usernameError.textContent = data;
+            const errMsg = data.replace(/\"/g, '');
+            if (errMsg.includes('username')) 
+              return usernameError.textContent = errMsg;
             else  
-              return passwordError.textContent = data;
+              return passwordError.textContent = errMsg;
           };
 
           form.addEventListener('submit', async (event) => {
