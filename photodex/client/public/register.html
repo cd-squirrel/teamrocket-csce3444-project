@@ -104,15 +104,28 @@
         <br>
         <br>
         <h1>Welcome!</h1>
-        <h2>Enter registration information below</h2>
+        <img src="example_images/ProOak.png"
+        width="400"
+        height="700" />
+        
+        <p style = "padding-bottom: 5px;">
+        </p>
+         
         <form id="reg-form">
-          <input type="text" id="username" placeholder="Username" required\>
+          <input type="text" id="username" placeholder="Enter Username" required\>
           <div class="username error"></div>
-          <input type="password" id="password" placeholder="Password" required\>
+          <input type="password" id="password" placeholder="Enter Password" required\>
           <div class="password error"></div>
+          <caption style=>*Password must be at least 6 characters</caption>
+          <p style = "padding-bottom: 5px;">
+          </p>
           <input type="submit" value="Register" \>
-    
+          <p style = "padding-bottom: 60px;">
+          </p>
         </form>
+
+        <text style="color: blue">Already a user?</text>
+        <a class="nav-link" href="login.html">Login</a> 
     
         <script>
           const form = document.getElementById('reg-form');
