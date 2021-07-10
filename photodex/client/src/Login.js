@@ -53,17 +53,17 @@ const Login = () => {
         <h1>Welcome!</h1>
         <h2>Log In</h2>
         <form onSubmit={handleSubmit}>
-          <label>Username</label>
           <input 
             type="text" 
             required
+            placeholder = "Username"
             value = {username} 
             onChange={(e) => setUsername(e.target.value)}/>
           <div className="username error"></div>
-          <label>Password</label>
           <input 
             type="password" 
             required  
+            placeholder = "Password"
             value = {password} 
             onChange={(e) => setPassword(e.target.value)}/>
           <div className="password error"></div>
