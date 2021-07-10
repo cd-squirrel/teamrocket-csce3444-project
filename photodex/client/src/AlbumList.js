@@ -1,17 +1,25 @@
+import useFetch from './useFetch';
+
 //add links later
 
-const AlbumList = ({ albums }) => {
-  state = {albums: []};
+const AlbumList = () => {
+  const { data: albums, isPending, error } = useFetch('/api/user/albums');
 
-  fetch('/api/user/albums')
-    .then(res => res.json())
-    .then(albums => this.setState({ albums }));
+  console.log(albums);
+
+  if(albums === "Please log in") {
+    
+    return null;
+  }
+  
 
   return (
     <div className="album-list">
-      {albums.map(album => (
+      {error && <div>{ error }</div>}
+      {isPending && <div>Loading . . .</div>}
+      {albums && albums.map(album => (
         <div className="album-link" key={album._id} >
-            <h2>{ album.title }</h2>
+            <h3>{ album.name }</h3>
             <p>{ album.description }</p>
         </div>
       ))}

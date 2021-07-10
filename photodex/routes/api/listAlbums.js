@@ -1,20 +1,29 @@
 const express = require('express');
 const router = express.Router();
-
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 const Album = require('../../models/Album');
+require('dotenv').config();
 
-// Get list of albums by user
+router.use(cookieParser());
+
+
 router.get('/albums', async (req, res) => {
     try {
-      //check if username exists
-      const user = await User.findOne({ username: req.body.username });
-      if(!user) return res.status(400).json('username not found');
-
-      //now get list of albums
-      await Album.find({ owner: user._id })
-        .sort({ date: 1})
-        .then(albums => res.json(albums))
+      const token = req.cookies.jwt;
+      if (!token) {
+        return res.json('Please log in');
+      }
+      const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+      if (!verified) {
+        return res.json('Please log in');
+      }
+      req.user = verified;
+      const user = await User.findById(req.user.id);
+      await Album.find({owner: user._id}).then(albums => res.json(albums))
+      .then(console.log('sent albums to client'));
+    
     } catch(err) {
         console.log(err);
     }

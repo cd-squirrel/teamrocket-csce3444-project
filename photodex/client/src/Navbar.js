@@ -6,7 +6,7 @@ const Navbar = () => {
     
     const logout = async () => {
         try {
-          const res = await fetch('/api/logout', {
+          await fetch('/api/logout', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="nav">
           <ul className="nav navbar-nav mr-auto justify-content-end">
               <li className="nav-item">
-                  <a className="nav-link" href="my_albums.html">My Albums</a>
+                <Link to="/myAlbums" className="nav-link">My Albums</Link>
               </li>
               <li className="nav-item">
   
