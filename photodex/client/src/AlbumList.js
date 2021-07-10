@@ -15,6 +15,7 @@ const AlbumList = () => {
 
   return (
     <div className="album-list">
+      <h1>My Albums</h1>
       {error && <div>{ error }</div>}
       {isPending && <div>Loading . . .</div>}
       {albums && albums.map(album => (
