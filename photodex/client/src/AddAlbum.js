@@ -1,43 +1,66 @@
 import { useState } from "react";
+import useFetch from "./useFetch";
+import Login from "./Login";
 
 const AddAlbum = () => {
-  const [title, setTitle] = useState('');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const album = { title, description };
+    const album = { name, description };
 
-    fetch('/api/post/newAlbum', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(album)
-    }).then(() => {
-      console.log('album created');
-    })
+    try {
+      await fetch('/api/post/newAlbum', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(album)
+      });
+
+    } catch(err) {
+      console.log(err);
+    }
+  };
+
+   //temp check for signed in user
+  //from AlbumList; is there a better way?
+  var loggedIn = true;
+  const { data: albums } = useFetch('/api/user/albums');
+  console.log(albums);
+  if(albums === "Please log in") {
+    loggedIn = false;
   }
 
-  return (
-    <div className="new-album">
-      <h2>Add a New Album</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Album title:</label>
-        <input 
-          type="text" 
-          required 
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label>Description:</label>
-        <textarea
-          required
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-        <button>Add Album</button>
-      </form>
+  if (loggedIn) {
+    return (
+      <div className="new-album">
+       <h2>Add a New Album</h2>
+       <form onSubmit={handleSubmit}>
+         <input 
+           type="text" 
+           required 
+           placeholder="Album Name"
+           value={name}
+           onChange={(e) => setName(e.target.value)}
+         />
+         <textarea
+           required
+           placeholder="Description"
+           value={description}
+           onChange={(e) => setDescription(e.target.value)}
+         ></textarea>
+         <button>Add Album</button>
+       </form>
+     </div> 
+   );
+  }
+  else {
+    return (
+      <div>
+      <Login />
     </div>
-  );
+    );
+  }
 }
  
 export default AddAlbum;

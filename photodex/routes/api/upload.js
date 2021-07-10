@@ -4,6 +4,8 @@ const {GridFsStorage} = require('multer-gridfs-storage');
 const multer = require('multer');
 const crypto = require('crypto');
 const path = require('path');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const verify = require('./verify');
@@ -14,7 +16,7 @@ const Album = require('../../models/Album');
 const Image = require('../../models/Image');
 
 // Connecting to mongodb
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.DB_CONNECTION;
 const conn = mongoose.createConnection(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -136,29 +138,37 @@ router.get('/:id', ({ params: { id } }, res) => {
 });
 
 // Create new album
-router.post('/newAlbum', verify, async (req,res) => {
+router.post('/newAlbum', async (req,res) => {
 
     //validate
     const { error } = albumValidation(req.body);
     if(error) return res.status(400).send('must have album title');
     
-    //find user
-    const userId = req.user._id;
-    const foundUser = await User.findById(userId);
-    if (!foundUser) return res.status(400).send('User not found');
-
-    //create album
-    const album = new Album({
-        owner: userId,
-        name: req.body.name,
-        description: req.body.description
-    });
     try {
+        const token = req.cookies.jwt;
+        if (!token) {
+          return res.json('Please log in');
+        }
+        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+        if (!verified) {
+          return res.json('Please log in');
+        }
+        req.user = verified;
+        const user = await User.findById(req.user.id);
+
+        //create album
+        const album = new Album({
+            owner: user._id,
+            name: req.body.name,
+            description: req.body.description
+        });
+
         const savedAlbum = await album.save();
-        res.send({album: album.name});
-    } catch(err) {
-        res.status(400).send(err);
-    }
+        res.json({album: album.name})
+      
+      } catch(err) {
+          console.status(400).send(err);
+      }
 });
 
 module.exports = router;

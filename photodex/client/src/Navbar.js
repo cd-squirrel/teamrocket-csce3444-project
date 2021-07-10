@@ -27,12 +27,13 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="nav">
           <ul className="nav navbar-nav mr-auto justify-content-end">
               <li className="nav-item">
+                <Link to="/upload" className="nav-link">Upload</Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/myAlbums" className="nav-link">My Albums</Link>
               </li>
               <li className="nav-item">
-  
                  <Link to="/login" className="nav-link">Login</Link>
-
               </li>
               <li className="nav-item">
                   <button className="nav-link" onClick={logout}>Log Out</button>

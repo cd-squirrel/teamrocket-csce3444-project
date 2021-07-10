@@ -3,7 +3,8 @@ import './App.css';
 import Navbar from './Navbar';
 import Login from './Login';
 import Register from './Register';
-import AlbumList from './AlbumList';
+import MyAlbums from './MyAlbums';
+import Upload from './Upload';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -21,7 +22,10 @@ function App(){
               <Register />
             </Route>
             <Route exact path = "/myAlbums">
-              <AlbumList />
+              <MyAlbums />
+            </Route>
+            <Route exact path ="/upload">
+              <Upload />
             </Route>
           </Switch>
         </div>

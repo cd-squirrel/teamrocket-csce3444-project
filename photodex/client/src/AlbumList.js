@@ -1,4 +1,5 @@
 import useFetch from './useFetch';
+import Login from './Login';
 
 //add links later
 
@@ -9,7 +10,11 @@ const AlbumList = () => {
 
   if(albums === "Please log in") {
     
-    return null;
+    return (
+      <div>
+        <Login />
+      </div>
+    );
   }
   
 
