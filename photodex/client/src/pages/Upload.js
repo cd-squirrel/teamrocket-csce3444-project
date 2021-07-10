@@ -1,5 +1,5 @@
 import React from 'react';
-import AddAlbum from './AddAlbum';
+import AddAlbum from '../components/AddAlbum';
 
 const Upload = () => {
 

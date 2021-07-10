@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
-import Login from './Login';
-import Register from './Register';
-import MyAlbums from './MyAlbums';
-import Upload from './Upload';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import MyAlbums from './pages/MyAlbums';
+import Upload from './pages/Upload';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 

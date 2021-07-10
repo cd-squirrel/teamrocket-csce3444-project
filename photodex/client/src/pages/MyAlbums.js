@@ -1,5 +1,5 @@
 import React from 'react';
-import AlbumList from './AlbumList';
+import AlbumList from '../components/AlbumList';
 
 const MyAlbum = () => {
 

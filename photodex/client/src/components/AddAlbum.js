@@ -1,6 +1,6 @@
 import { useState } from "react";
-import useFetch from "./useFetch";
-import Login from "./Login";
+import useFetch from "../useFetch";
+import Login from "../pages/Login";
 
 const AddAlbum = () => {
   const [name, setName] = useState('');

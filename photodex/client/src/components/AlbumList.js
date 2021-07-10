@@ -1,5 +1,5 @@
-import useFetch from './useFetch';
-import Login from './Login';
+import useFetch from '../useFetch';
+import Login from '../pages/Login';
 
 //add links later
 
