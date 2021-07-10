@@ -11,7 +11,7 @@ router.post('/newAlbum', verify, async (req,res) => {
 
     //validate
     const { error } = albumValidation(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    if(error) return res.status(400).send('must have album title');
     
     //find user
     const userId = req.user._id;
@@ -31,8 +31,5 @@ router.post('/newAlbum', verify, async (req,res) => {
         res.status(400).send(err);
     }
 });
-
-// Upload image
-
 
 module.exports = router;

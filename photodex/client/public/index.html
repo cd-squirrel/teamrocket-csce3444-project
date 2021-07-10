@@ -46,57 +46,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light justify-content-center">
-      
-      <!-- This is the "brand" that goes all the way to the left. -->
-      <a class="navbar-brand d-flex w-50 mr-auto" href="index.html">PhotoDex</a>
-
-      <!-- This button replaces the links list when in mobile. -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="nav">
-          <!-- Create an unordered list to hold our links and format it automatically. -->
-          <ul class="nav navbar-nav mr-auto justify-content-end">
-              <!-- All the links in the navbar will be listed below as list items using the <li> tag. -->
-              <li class="nav-item">
-                  <!-- To make them into links, we use the <a href="link"> tag. -->
-                  <!-- The class="nav-link" part just makes them display nicely. -->
-                  <a class="nav-link" href="my_albums.html">My Albums</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Log in</a>
-            </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="logout()">Log Out</a>
-                  <script>
-                    const logout = async () => {
-                      try {
-                        const res = await fetch('/api/logout', {
-                          method: 'GET',
-                          headers: {
-                            'Content-Type': 'application/json'
-                          }
-                        });
-                      } catch(err) {
-                        console.log(err);
-                      }
-  
-                      location.assign('/');
-                    };
-                  </script>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="register.html">Register</a>
-              </li>
-          </ul>
-      </div>
-    </nav>
-
     <!-- Page Container -->
     <div class="container-fluid">
       

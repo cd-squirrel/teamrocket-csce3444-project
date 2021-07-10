@@ -1,25 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+import Navbar from './Navbar';
+import Login from './Login';
+import Register from './Register';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-class App extends Component {
-  state = {users: []}
 
-  componentDidMount() {
-    fetch('/api/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user._id}>{user.username}</div>
-        )}
+function App(){
+  return (
+    <Router>
+      <div className="app">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route exact path ="/login">
+              <Login />
+            </Route>
+            <Route exact path = "/register">
+              <Register />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;

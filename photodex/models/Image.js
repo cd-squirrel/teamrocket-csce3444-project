@@ -23,10 +23,7 @@ const ImageSchema = new Schema({
         type: String,
         required: true,
     },
-    name: {
-        type: String,
-        required: true
-    }
+    tags: [String]
   }, 
 { timestamps: true});
 
