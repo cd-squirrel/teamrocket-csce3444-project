@@ -20,6 +20,9 @@ const AddAlbum = () => {
     } catch(err) {
       console.log(err);
     }
+
+    setName('');
+    setDescription('');
   };
 
    //temp check for signed in user
