@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ImageSchema = new Schema({
+const PhotoSchema = new Schema({
     owner: {
         type: mongoose.Types.ObjectId,
         ref: 'User',
@@ -27,4 +27,4 @@ const ImageSchema = new Schema({
   }, 
 { timestamps: true});
 
-module.exports = Image = mongoose.model('image', ImageSchema);
+module.exports = Photo = mongoose.model('photo', PhotoSchema);

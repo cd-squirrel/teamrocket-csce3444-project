@@ -32,7 +32,7 @@ const connectDB = async () => {
 
 connectDB();
 
-app.listen(3001, () => console.log('Server started . . .'));
+app.listen(8000, () => console.log('Server started . . .'));
 
 //middleware
 app.use(logger('dev'));

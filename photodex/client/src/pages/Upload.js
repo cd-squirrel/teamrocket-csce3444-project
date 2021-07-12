@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 import useFetch from "../useFetch";
 import Login from "../pages/Login";
 
 const Upload = () => {
+
+  //ADD ALBUM
+
+  //album state vars
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [albumId, setAlbumId] = useState('');
 
+  //fetching albums: to check login and for refreshing album list in image upload
   var loggedIn = true;
   var { data: albums, isPending, error } = useFetch('/api/user/albums');
   console.log(albums);
@@ -13,7 +20,11 @@ const Upload = () => {
     loggedIn = false;
   }
 
-  const handleSubmit = async (e) => {
+  
+  //setAlbumId(albums[0]._id);
+
+  //album submit handler
+  const handleAlbumSubmit = async (e) => {
     e.preventDefault();
     const album = { name, description };
 
@@ -30,45 +41,148 @@ const Upload = () => {
     setName('');
     setDescription('');
 
-    window.location.reload();
+    window.location.reload(); //for refreshing album options in image upload form
   };
 
-  
+  //IMAGE UPLOAD
+  //Credit: Thomas Foydel for most of the upload code
+  //github repo: ThomasFoydel/MERN-image-upload
 
+  //image state vars
+  const [file, setFile] = useState(null);
+  const [inputContainsFile, setInputContainsFile] = useState(false);
+  const [currentlyUploading, setCurrentlyUploading] = useState(false);
+  const [imageId, setImageId] = useState(null);
+  const [progress, setProgress] = useState(null);
+  const [caption, setCaption] = useState(null);
+
+
+
+  //file handler
+  const handleFile = (event) => {
+    setFile(event.target.files[0]);
+    setInputContainsFile(true);
+  };
+  
+  //file upload handler
+  const fileUploadHandler = () => {
+    if (albumId === '') {
+        return;
+    }
+
+    const fd = new FormData();
+    fd.append('image', file, file.name);
+
+    axios
+      .post(`/api/post/upload/`, fd, { 
+        headers: { 'albumid': albumId },
+        onUploadProgress: (progressEvent) => {
+          setProgress((progressEvent.loaded / progressEvent.total) * 100);
+          console.log(
+            'upload progress: ',
+            Math.round((progressEvent.loaded / progressEvent.total) * 100)
+          );
+        },
+      }).then(({ data }) => {
+        console.log('sent image to server');
+        setImageId(data);
+        setFile(null);
+        setInputContainsFile(false);
+        setCurrentlyUploading(false);
+      }).catch((err) => {
+        console.log(err);
+        if (err.response.status === 400) {
+          const errMsg = err.response.data;
+          if (errMsg) {
+            console.log(errMsg);
+            alert(errMsg);
+          }
+        } else if (err.response.status === 500) {
+          console.log('db error');
+          alert('db error');
+        } else {
+          console.log('other error: ', err);
+        }
+        setInputContainsFile(false);
+        setCurrentlyUploading(false);
+        })
+  };
+
+  // onClick handler
+  const handleClick = () => {
+    if (albumId === 'null') {
+        alert('albumId is null');
+    }
+    if (inputContainsFile) {
+      setCurrentlyUploading(true);
+      fileUploadHandler();
+    }
+  };
+
+useEffect( () => {
+  console.log('albumId state changed')
+}, [albumId]);
+
+    
+  
   if (loggedIn) {
     return (
       <div className="uploads">
         <div className="new-album">
           <h2>Add a New Album</h2>
-          <form onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              required 
-              placeholder="Album Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <textarea
-              required
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
+          <form onSubmit={handleAlbumSubmit}>
+            <div className="album-name">
+              <input 
+                type="text" 
+                required 
+                placeholder="Album Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="album-description">
+              <textarea
+                required
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}>
+              </textarea>
+            </div>
             <button>Add Album</button>
          </form>
        </div> 
        <div className="image-upload">
-         <h1>Image Upload</h1>
+         <h2>Image Upload</h2>
          {error && <div>{ error }</div>}
          {isPending && <div>Loading . . .</div>}
          {albums && 
             <form>
-              <label>Choose album</label>
-              <select>
-                {albums.map( (album) => (
-                  <option>{album.name}</option>
-                ))}
-              </select>
+              <div className="choose-album">
+                <label>Choose album</label>
+                <select 
+                  value = {albumId}
+                  onChange={(e) => setAlbumId(e.target.value)}>
+                    <option key='' value=''>Choose album</option>
+                    {albums.map( (album) => (
+                      <option key={album._id} value={album._id}>{album.name}</option>
+                    ))}
+                </select>
+              </div>
+              <div className="choose-image">
+                <input
+                  className='file-input'
+                  onChange={handleFile}
+                  type='file'
+                  name='file'
+                  id='file'/>
+                <label
+                  className={`inputlabel ${file && 'file-selected'}`}
+                  htmlFor='file'>
+                </label>
+              </div>
+              <div className="submit">
+                <button onClick={handleClick}> Upload </button>
+              </div>
             </form>}
          </div>
       </div>

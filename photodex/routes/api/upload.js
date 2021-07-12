@@ -8,12 +8,17 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const verify = require('./verify');
 const { albumValidation } = require('../../validation');
 
 const User = require('../../models/User');
 const Album = require('../../models/Album');
-const Image = require('../../models/Image');
+const Photo = require('../../models/Photo');
+
+// middleware
+router.use(cookieParser());
+
+//Credit: Thomas Foydel for most of the image upload code
+//github repo: ThomasFoydel/MERN-image-upload
 
 // Connecting to mongodb
 const mongoURI = process.env.DB_CONNECTION;
@@ -76,45 +81,74 @@ const uploadMiddleware = (req, res, next) => {
         } else if (err) {
             if (err == 'filetype') return res.status(400).send('Image files only');
             return res.status(500);
-        }
+        };
+        //console.log('did upload middleware');
         next();
     });
 };
 
 //image upload route
-router.post('/upload', uploadMiddleware, async (req, res) => {
+router.post('/upload/', uploadMiddleware, async (req, res) => {
     const {file} = req;
     const {id} = file;
+    
+    const albumId = req.header('albumid');
+    //console.log(req.headers);
+    if (albumId === null) {
+        return res.send('albumId = null')};
+
+    
+    var user = {};
+
     if (file.size > 5000000) {
         deleteImage(id);
         return res.status(400).send('File may not exceed 5 mb');
     }
-    console.log('uploaded file: ', file);
+    console.log('uploaded file');
+    res.send('uploaded image');
 
     //find user
-    const userId = req.user._id;
+    /*const userId = req.user._id;
     const foundUser = await User.findById(userId);
-    if (!foundUser) return res.status(400).send('User not found');
+    if (!foundUser) return res.status(400).send('User not found');*/
 
-    //get album id
-    const albumId = req.album._id;
-    const foundAlbum = await Album.findById(albumId);
-    if (!foundAlbum) return res.status(400).send('Album not found');
-
-    const image = new Image({
-        owner: userId,
-        album: albumId,
-        fileId: id._id
-    });
+    /*const foundAlbum = await Album.findById(albumId);
+    if (!foundAlbum) return res.status(400).send('Album not found');*/
 
     try {
-        const savedImage = await image.save();
-        res.send({image: image.fileId});
+        const token = req.cookies.jwt;
+        if (!token) {
+          return res.send('Please log in');
+        }
+        console.log('checked cookie');
+        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+        if (!verified) {
+          return res.send('Please log in');
+        }
+        console.log('checked jwt');
+        user_id = verified;
+        console.log(user_id);
+        user = await User.findById(user_id.id);
+        console.log('valid user');
 
     } catch(err) {
-        res.status(400).send(err);
+        return console.log('caught error: ', err);
     }
-    return res.send(file.id);
+
+    const photo = new Photo({
+        owner: user._id,
+        album: albumId,
+        fileId: id
+    });
+    console.log('init Photo');
+
+    try {
+        const savedImage = await photo.save();
+        console.log('saved photo');
+
+    } catch(err) {
+        return console.log(err);
+    }
 });
 
 //delete image
