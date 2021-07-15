@@ -92,38 +92,29 @@ router.post('/upload/', uploadMiddleware, async (req, res) => {
     const {file} = req;
     const {id} = file;
     
-    const albumId = req.header('albumid');
-    //console.log(req.headers);
+    const albumId = req.body.albumid;
+    console.log(req.body);
     if (albumId === null) {
-        return res.send('albumId = null')};
+        return res.json('albumId = null')};
 
     
     var user = {};
 
     if (file.size > 5000000) {
         deleteImage(id);
-        return res.status(400).send('File may not exceed 5 mb');
+        return res.status(400).json('File may not exceed 5 mb');
     }
     console.log('uploaded file');
-    res.send('uploaded image');
-
-    //find user
-    /*const userId = req.user._id;
-    const foundUser = await User.findById(userId);
-    if (!foundUser) return res.status(400).send('User not found');*/
-
-    /*const foundAlbum = await Album.findById(albumId);
-    if (!foundAlbum) return res.status(400).send('Album not found');*/
 
     try {
         const token = req.cookies.jwt;
         if (!token) {
-          return res.send('Please log in');
+          return res.json('Please log in');
         }
         console.log('checked cookie');
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
         if (!verified) {
-          return res.send('Please log in');
+          return res.json('Please log in');
         }
         console.log('checked jwt');
         user_id = verified;
@@ -132,9 +123,11 @@ router.post('/upload/', uploadMiddleware, async (req, res) => {
         console.log('valid user');
 
     } catch(err) {
-        return console.log('caught error: ', err);
+        console.log(err);
+        return res.json('caught error: ', err);
     }
 
+    console.log('album id: ', albumId);
     const photo = new Photo({
         owner: user._id,
         album: albumId,
@@ -147,8 +140,10 @@ router.post('/upload/', uploadMiddleware, async (req, res) => {
         console.log('saved photo');
 
     } catch(err) {
-        return console.log(err);
+        console.log(err);
+        return res.json(err);
     }
+    res.json('uploaded image');
 });
 
 //delete image

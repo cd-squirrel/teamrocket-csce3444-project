@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import useFetch from "../useFetch";
+//import useIdFetch from "../useIdFetch";
 import Login from "../pages/Login";
 
 const Upload = () => {
@@ -14,14 +15,11 @@ const Upload = () => {
 
   //fetching albums: to check login and for refreshing album list in image upload
   var loggedIn = true;
-  var { data: albums, isPending, error } = useFetch('/api/user/albums');
+  var { data: albums, isPending, error } = useFetch(`/api/user/albums/0`);
   console.log(albums);
   if(albums === "Please log in") {
     loggedIn = false;
   }
-
-  
-  //setAlbumId(albums[0]._id);
 
   //album submit handler
   const handleAlbumSubmit = async (e) => {
@@ -54,8 +52,6 @@ const Upload = () => {
   const [currentlyUploading, setCurrentlyUploading] = useState(false);
   const [imageId, setImageId] = useState(null);
   const [progress, setProgress] = useState(null);
-  const [caption, setCaption] = useState(null);
-
 
 
   //file handler
@@ -65,18 +61,19 @@ const Upload = () => {
   };
   
   //file upload handler
-  const fileUploadHandler = () => {
+  const fileUploadHandler = (e) => {
+  
     if (albumId === '') {
         return;
     }
 
     const fd = new FormData();
     fd.append('image', file, file.name);
+    fd.append('albumid', albumId);
 
     axios
-      .post(`/api/post/upload/`, fd, { 
-        headers: { 'albumid': albumId },
-        onUploadProgress: (progressEvent) => {
+      .post(`/api/post/upload/`, fd, 
+        {onUploadProgress: (progressEvent) => {
           setProgress((progressEvent.loaded / progressEvent.total) * 100);
           console.log(
             'upload progress: ',
@@ -120,7 +117,7 @@ const Upload = () => {
   };
 
 useEffect( () => {
-  console.log('albumId state changed')
+  console.log('albumId state changed ', albumId);
 }, [albumId]);
 
     

@@ -1,3 +1,5 @@
+//github: iamshaunjp/Complete-React-Tutorial
+
 import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
@@ -9,7 +11,8 @@ const useFetch = (url) => {
     const abortCont = new AbortController();
 
     setTimeout(() => {
-      fetch(url, { signal: abortCont.signal })
+      fetch(url, 
+        { signal: abortCont.signal })
       .then(res => {
         if (!res.ok) { // error coming back from server
           throw Error('could not fetch the data for that resource');

@@ -4,7 +4,7 @@ import Login from '../pages/Login';
 //add links later
 
 const AlbumList = () => {
-  const { data: albums, isPending, error } = useFetch('/api/user/albums');
+  const { data: albums, isPending, error } = useFetch('/api/user/albums/0');
 
   console.log(albums);
 

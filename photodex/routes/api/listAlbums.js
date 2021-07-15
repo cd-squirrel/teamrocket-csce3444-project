@@ -4,29 +4,42 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 const Album = require('../../models/Album');
+const Photo = require('../../models/Photo');
 require('dotenv').config();
 
 router.use(cookieParser());
 
+//Get albums by user id, or by cookies if user is logged in
+router.get('/albums/:userId', async (req, res) => {
 
-router.get('/albums', async (req, res) => {
+  var useUserId = req.params.userId;
+
     try {
-      const token = req.cookies.jwt;
-      if (!token) {
-        return res.json('Please log in');
+
+      if (useUserId === '0') {
+        const token = req.cookies.jwt;
+        if (!token) {
+          console.log('no token');
+          return res.json('Please log in');
+        }
+        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+        if (!verified) {
+          console.log('invalid token');
+          return res.json('Please log in');
+        }
+        useUserId = verified.id;
       }
-      const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-      if (!verified) {
-        return res.json('Please log in');
-      }
-      req.user = verified;
-      const user = await User.findById(req.user.id);
+
+      const user = await User.findById(useUserId);
       await Album.find({owner: user._id}).then(albums => res.json(albums))
       .then(console.log('sent albums to client'));
     
     } catch(err) {
         console.log(err);
+        res.json(err);
     }
 });
+
+
 
 module.exports = router;
