@@ -6,7 +6,7 @@ const logger = require('morgan');
 const authRoute = require('./routes/api/auth');
 const postRoute = require('./routes/api/upload');
 const listUsersRoute = require('./routes/api/users');
-const listAlbumsRoute = require('./routes/api/listAlbums');
+const listAlbumsPhotosRoute = require('./routes/api/listAlbumsPhotos');
 const { verifyJWT } = require('./middleware/verifyJWT');
 
 //vars for database connection
@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/users', listUsersRoute);
-app.use('/api/user/', listAlbumsRoute);
+app.use('/api/user/', listAlbumsPhotosRoute);
 app.use('/api/', authRoute);
 app.use('/api/post', /*verifyJWT,*/ postRoute);
 

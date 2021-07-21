@@ -10,6 +10,7 @@ require('dotenv').config();
 
 const { albumValidation } = require('../../validation');
 
+//models
 const User = require('../../models/User');
 const Album = require('../../models/Album');
 const Photo = require('../../models/Photo');

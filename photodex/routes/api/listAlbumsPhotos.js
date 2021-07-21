@@ -40,6 +40,39 @@ router.get('/albums/:userId', async (req, res) => {
     }
 });
 
+//Get images in a user's album
+router.get('/images/:userId/:albumId', async (req, res) => {
+
+  var useUserId = req.params.userId;
+  var useAlbumId = req.params.albumId;
+
+    try {
+
+      if (useUserId === '0') {
+        const token = req.cookies.jwt;
+        if (!token) {
+          console.log('no token');
+          return res.json('Please log in');
+        }
+        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+        if (!verified) {
+          console.log('invalid token');
+          return res.json('Please log in');
+        }
+        useUserId = verified.id;
+      }
+
+      const user = await User.findById(useUserId);
+      const album = await Album.findById(useAlbumId);
+      await Photo.find({owner: user._id, album: album._id}).then(images => res.json(images))
+      .then(console.log('sent images to client'));
+    
+    } catch(err) {
+        console.log(err);
+        res.json(err);
+    }
+});
+
 
 
 module.exports = router;

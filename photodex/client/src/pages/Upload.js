@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import useFetch from "../useFetch";
-//import useIdFetch from "../useIdFetch";
 import Login from "../pages/Login";
 
 const Upload = () => {
@@ -49,10 +48,7 @@ const Upload = () => {
   //image state vars
   const [file, setFile] = useState(null);
   const [inputContainsFile, setInputContainsFile] = useState(false);
-  const [currentlyUploading, setCurrentlyUploading] = useState(false);
   const [imageId, setImageId] = useState(null);
-  const [progress, setProgress] = useState(null);
-
 
   //file handler
   const handleFile = (event) => {
@@ -72,20 +68,12 @@ const Upload = () => {
     fd.append('albumid', albumId);
 
     axios
-      .post(`/api/post/upload/`, fd, 
-        {onUploadProgress: (progressEvent) => {
-          setProgress((progressEvent.loaded / progressEvent.total) * 100);
-          console.log(
-            'upload progress: ',
-            Math.round((progressEvent.loaded / progressEvent.total) * 100)
-          );
-        },
-      }).then(({ data }) => {
+      .post(`/api/post/upload/`, fd )
+      .then(({ data }) => {
         console.log('sent image to server');
         setImageId(data);
         setFile(null);
         setInputContainsFile(false);
-        setCurrentlyUploading(false);
       }).catch((err) => {
         console.log(err);
         if (err.response.status === 400) {
@@ -101,7 +89,6 @@ const Upload = () => {
           console.log('other error: ', err);
         }
         setInputContainsFile(false);
-        setCurrentlyUploading(false);
         })
   };
 
@@ -111,7 +98,6 @@ const Upload = () => {
         alert('albumId is null');
     }
     if (inputContainsFile) {
-      setCurrentlyUploading(true);
       fileUploadHandler();
     }
   };
