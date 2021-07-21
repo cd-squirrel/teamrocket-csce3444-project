@@ -1,7 +1,7 @@
 import React from 'react';
 import AlbumList from '../components/AlbumList';
 
-const MyAlbum = () => {
+const MyAlbums = () => {
 
     return (
         <div>
@@ -10,4 +10,4 @@ const MyAlbum = () => {
     );
 };
 
-export default MyAlbum;
+export default MyAlbums;
