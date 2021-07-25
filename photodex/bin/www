@@ -53,8 +53,10 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
-  if (error.syscall !== 'listen') {
+function onError(error) 
+{
+  if (error.syscall !== 'listen') 
+  {
     throw error;
   }
 
@@ -63,7 +65,8 @@ function onError(error) {
     : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
-  switch (error.code) {
+  switch (error.code) 
+  {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
       process.exit(1);
@@ -73,7 +76,7 @@ function onError(error) {
       process.exit(1);
       break;
     default:
-      throw error;
+      throw error;//error handle
   }
 }
 
