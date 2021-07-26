@@ -4,14 +4,19 @@ require('dotenv').config();
 //validating jwt in cookie
 const verifyJWT = (req, res, next) => {
     const token = req.cookies.jwt;
+    
+    //login
 
     if (token) {
         jwt.verify(token, process.env.TOKEN_SECRET, (err, decodedToken) => {
-            if (err) {
+            if (err) 
+            {
                 console.log(err.message);
                 res.redirect('/login')
                 next();
-            } else {
+            } 
+            else 
+            {
                 console.log(decodedToken);
                 next();
             }
