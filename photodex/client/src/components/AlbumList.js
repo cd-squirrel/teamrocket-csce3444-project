@@ -1,8 +1,9 @@
 import useFetch from '../useFetch';
 import Login from '../pages/Login';
+import { Link } from 'react-router-dom';
 
 //add links later
-
+//need to make public access, maybe use component param for username if logged in?
 const AlbumList = () => {
   const { data: albums, isPending, error } = useFetch('/api/user/albums/0');
 
@@ -23,12 +24,13 @@ const AlbumList = () => {
       <h1>My Albums</h1>
       {error && <div>{ error }</div>}
       {isPending && <div>Loading . . .</div>}
+      <div>
       {albums && albums.map(album => (
-        <div className="album-link" key={album._id} >
-            <h3>{ album.name }</h3>
-            <p>{ album.description }</p>
-        </div>
+        <h3 className="album-link" key={album._id} >
+            <Link to={`/images/${album.owner}/${album._id}`}>{ album.name }</Link>
+        </h3>
       ))}
+      </div>
     </div>
   );
 }

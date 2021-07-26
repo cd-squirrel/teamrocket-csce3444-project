@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import MyAlbums from './pages/MyAlbums';
 import Upload from './pages/Upload';
+import AlbumImages from './components/AlbumImages';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -26,6 +27,9 @@ function App(){
             </Route>
             <Route exact path ="/upload">
               <Upload />
+            </Route>
+            <Route exact path ="/images/:userId/:albumId">
+              <AlbumImages />
             </Route>
           </Switch>
         </div>

@@ -40,10 +40,11 @@ router.get('/albums/:userId', async (req, res) => {
     }
 });
 
-//Get images in a user's album
+//Get images (metadata) in a user's album
 router.get('/images/:userId/:albumId', async (req, res) => {
 
   var useUserId = req.params.userId;
+  console.log(useUserId);
   var useAlbumId = req.params.albumId;
 
     try {
@@ -72,6 +73,23 @@ router.get('/images/:userId/:albumId', async (req, res) => {
         res.json(err);
     }
 });
+
+//fetching the actual images
+//need a way to let gfs be the existing bucket
+/*router.get('/image/:id', async (req, res) => {
+  const file = gfs
+    .find({
+      filename: req.params.id
+    })
+    .toArray((err, files) => {
+      if (!files || files.length === 0) {
+        return res.status(404).json({
+          err: "no files exist"
+        });
+      }
+      gfs.openDownloadStreamByName(req.params.id).pipe(res);
+    });
+})*/
 
 
 
