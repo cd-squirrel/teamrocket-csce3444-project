@@ -74,23 +74,5 @@ router.get('/images/:userId/:albumId', async (req, res) => {
     }
 });
 
-//fetching the actual images
-//need a way to let gfs be the existing bucket
-/*router.get('/image/:id', async (req, res) => {
-  const file = gfs
-    .find({
-      filename: req.params.id
-    })
-    .toArray((err, files) => {
-      if (!files || files.length === 0) {
-        return res.status(404).json({
-          err: "no files exist"
-        });
-      }
-      gfs.openDownloadStreamByName(req.params.id).pipe(res);
-    });
-})*/
-
-
 
 module.exports = router;
