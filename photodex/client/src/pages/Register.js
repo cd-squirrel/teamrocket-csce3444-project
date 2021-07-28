@@ -54,8 +54,8 @@ const Register = () => {
       <div className="col align-self-center">
         <br></br>
         <br></br>
-        <h1>Welcome!</h1>
-        <h2>Sign up here</h2>
+       <h1>Sign up here</h1>
+        <div><img id = "x" src="example_images/ProOak.png"></img></div>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
