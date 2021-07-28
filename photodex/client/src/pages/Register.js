@@ -46,17 +46,7 @@ const Register = () => {
     };
 
     //test place
-    var img;
-    function imgSet()
-    {
-        createCanvas(500,500);
-        img=loadImage('example_images/ProOak.png');
-    }
-    
-    function imgPlace()
-    {
-        image(img,250,400,img.width,img.height);
-    }
+   
     //test end
     
     return (
