@@ -8,7 +8,7 @@ const Upload = () => {
   //ADD ALBUM
 
   //album state vars
-  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [albumId, setAlbumId] = useState('');
 
@@ -23,7 +23,7 @@ const Upload = () => {
   //album submit handler
   const handleAlbumSubmit = async (e) => {
     e.preventDefault();
-    const album = { name, description };
+    const album = { title, description };
 
     try {
       await fetch('/api/post/newAlbum', {
@@ -35,7 +35,7 @@ const Upload = () => {
       console.log(err);
     }
 
-    setName('');
+    setTitle('');
     setDescription('');
 
     window.location.reload(); //for refreshing album options in image upload form
@@ -118,9 +118,9 @@ useEffect( () => {
               <input 
                 type="text" 
                 required 
-                placeholder="Album Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                placeholder="Album Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="album-description">
@@ -147,7 +147,7 @@ useEffect( () => {
                   onChange={(e) => setAlbumId(e.target.value)}>
                     <option key='' value=''>Choose album</option>
                     {albums.map( (album) => (
-                      <option key={album._id} value={album._id}>{album.name}</option>
+                      <option key={album._id} value={album._id}>{album.title}</option>
                     ))}
                 </select>
               </div>
