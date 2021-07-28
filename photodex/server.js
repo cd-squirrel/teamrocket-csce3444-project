@@ -4,7 +4,7 @@ const path = require('path');
 const logger = require('morgan');
 
 const authRoute = require('./routes/api/auth');
-const postRoute = require('./routes/api/upload');
+const imageRoute = require('./routes/api/image');
 const listUsersRoute = require('./routes/api/users');
 const listAlbumsPhotosRoute = require('./routes/api/listAlbumsPhotos');
 const { verifyJWT } = require('./middleware/verifyJWT');
@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/users', listUsersRoute);
 app.use('/api/user/', listAlbumsPhotosRoute);
 app.use('/api/', authRoute);
-app.use('/api/post', /*verifyJWT,*/ postRoute);
+app.use('/api/image', imageRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

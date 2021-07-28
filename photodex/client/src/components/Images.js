@@ -26,10 +26,10 @@ const Images = (props) => {
         {id ? (
           <>
             
-            <a className='link' href={`/api/post/${id}`} target='_blank'>
+            <a className='link' href={`/api/image/${id}`} target='_blank'>
             <img
               className='image'
-              src={`/api/post/${id}`}
+              src={`/api/image/${id}`}
               alt=''
             />
             </a>
