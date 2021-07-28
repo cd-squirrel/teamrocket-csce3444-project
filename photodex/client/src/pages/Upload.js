@@ -93,7 +93,7 @@ const Upload = () => {
   };
 
   // onClick handler
-  const handleClick = () => {
+  const clickHandler = () => {
     if (albumId === 'null') {
         alert('albumId is null');
     }
@@ -164,7 +164,7 @@ useEffect( () => {
                 </label>
               </div>
               <div className="submit">
-                <button onClick={handleClick}> Upload </button>
+                <button onClick={clickHandler}> Upload </button>
               </div>
             </form>}
          </div>
