@@ -1,7 +1,8 @@
 import { Link, useHistory } from 'react-router-dom';
+// import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import "./components/navbar.css"
 
-
-const Navbar = () => {
+const NavBar = () => {
     const history = useHistory();
     
     const logout = async () => {
@@ -19,32 +20,42 @@ const Navbar = () => {
       };
 
     return (
-        <nav className="navbar navbar-expand-md navbar-light bg-light justify-content-center">
-          <a className="navbar-brand d-flex w-50 mr-auto" href="index.html">PhotoDex</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="nav">
-          <ul className="nav navbar-nav mr-auto justify-content-end">
-              <li className="nav-item">
-                <Link to="/upload" className="nav-link">Upload</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/myAlbums" className="nav-link">My Albums</Link>
-              </li>
-              <li className="nav-item">
-                 <Link to="/login" className="nav-link">Login</Link>
-              </li>
-              <li className="nav-item">
-                  <button className="nav-link" onClick={logout}>Log Out</button>
-                  </li>
-              <li className="nav-item">
-                  <Link to="/register" className="nav-link">Register</Link>
-              </li>
-          </ul>
+        // <nav className="navbar navbar-expand-md navbar-light bg-primary">
+        //   <a className="navbar-brand align-self-start"  href="index.html">PhotoDex</a>
+        //   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+        //     <span className="navbar-toggler-icon"></span>
+        //   </button>
+        //   <div className="collapse navbar-collapse" id="nav">
+        //   <ul className="nav navbar-nav mr-auto justify-content-end">
+        //       <li className="nav-item">
+        //         <Link to="/upload" className="nav-link text-light">Upload</Link>
+        //       </li>
+        //       <li className="nav-item">
+        //         <Link to="/myAlbums" className="nav-link text-light">My Albums</Link>
+        //       </li>
+        //       <li className="nav-item">
+        //          <Link to="/login" className="nav-link text-light">Login</Link>
+        //       </li>
+        //       <li className="nav-item">
+        //           <button className="nav-link" onClick={logout}>Log Out</button>
+        //           </li>
+        //       <li className="nav-item">
+        //           <Link to="/register" className="nav-link text-light">Register</Link>
+        //       </li>
+        //   </ul>
+        //   </div>
+        // </nav>
+        <div class="topnav">
+          <a class="active navbar-brand" href="index.html">PhotoDex</a>
+          <Link to="/upload">Upload</Link>
+          <Link to="/myAlbums">My Albums</Link>
+          <div class="topnav-right">
+            <Link to="/login">login</Link>
+            <Link onClick={logout}>Logout</Link>
+            <Link to="/register">Register</Link>
           </div>
-        </nav>
+        </div>
     );
 };
 
-export default Navbar;
+export default NavBar;

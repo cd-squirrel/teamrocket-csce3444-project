@@ -64,3 +64,22 @@ div {
 .row.section {
     padding: 1%;
 }
+
+.card .read-more:hover{
+    font-size: 14px;
+}
+
+.card:hover{
+    box-shadow: 8px 8px 8px rgb(84, 84, 85);
+    transform:scale(1.2);
+}
+
+.card{
+  height:fit-content;
+  width:fit-content;
+  border:1px solid black;
+  transition:.3s;
+  margin: 3rem;
+  object-fit: cover;
+}
+

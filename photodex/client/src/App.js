@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Navbar from './Navbar';
+import NavBar from './NavBar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MyAlbums from './pages/MyAlbums';
@@ -8,12 +8,11 @@ import Upload from './pages/Upload';
 import AlbumImages from './components/AlbumImages';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-
 function App(){
   return (
     <Router>
       <div className="app">
-        <Navbar />
+        <NavBar />
         <div className="content">
           <Switch>
             <Route exact path ="/login">
