@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+//album validation
 const { albumValidation } = require('../../validation');
 
 //models
@@ -23,7 +24,8 @@ router.use(cookieParser());
 
 // Connecting to mongodb
 const mongoURI = process.env.DB_CONNECTION;
-const conn = mongoose.createConnection(mongoURI, {
+const conn = mongoose.createConnection(mongoURI, 
+                                       {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -32,7 +34,8 @@ const conn = mongoose.createConnection(mongoURI, {
 // Creating GridFS storage for images, unique file names
 let gfs;
 conn.once('open', () => {
-    gfs = new mongoose.mongo.GridFSBucket(conn.db, {
+    gfs = new mongoose.mongo.GridFSBucket(conn.db, 
+                                          {
         bucketName: 'images',
     });
 });
@@ -127,7 +130,7 @@ router.post('/upload/', uploadMiddleware, async (req, res) => {
         console.log(err);
         return res.json('caught error: ', err);
     }
-
+//album id
     console.log('album id: ', albumId);
     const photo = new Photo({
         owner: user._id,
@@ -196,7 +199,8 @@ router.post('/newAlbum', async (req,res) => {
         const savedAlbum = await album.save();
         res.json({album: album.name})
       
-      } catch(err) {
+      } catch(err) 
+      {
           console.status(400).send(err);
       }
 });
