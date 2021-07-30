@@ -50,8 +50,7 @@ const Register = () => {
     //test end
     
     return (
-    <div className="container-fluid">
-      <div className="col align-self-center">
+    <div className="register">
         <br></br>
         <br></br>
        <h1>Sign up here</h1>
@@ -73,7 +72,6 @@ const Register = () => {
           <div className="password error"></div>
           <button>Sign Up</button>
         </form>
-        </div>
         </div>
     );
 }
