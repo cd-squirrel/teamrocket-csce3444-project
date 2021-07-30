@@ -1,13 +1,17 @@
+//database
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const AlbumSchema = new Schema({
-    owner: {
+    owner: 
+    {
         type: mongoose.Types.ObjectId,
         ref: 'User',
         required: true
     },
-    name: {
+    name: 
+    {
         type: String,
         required: true
     },
