@@ -50,7 +50,7 @@ const NavBar = () => {
           <Link to="/upload">Upload</Link>
           <Link to="/myAlbums">My Albums</Link>
           <div className="topnav-right">
-            <Link to="/login">login</Link>
+            <Link to="/login">Login</Link>
             <Link onClick={logout}>Logout</Link>
             <Link to="/register">Register</Link>
           </div>
