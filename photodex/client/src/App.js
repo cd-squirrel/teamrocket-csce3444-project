@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import MyAlbums from './pages/MyAlbums';
 import Upload from './pages/Upload';
 import AlbumImages from './components/AlbumImages';
+import Home from './pages/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App(){
@@ -15,6 +16,9 @@ function App(){
         <NavBar />
         <div className="content">
           <Switch>
+            <Route exact path ="/home">
+              <Home />
+            </Route>
             <Route exact path ="/login">
               <Login />
             </Route>

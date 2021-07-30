@@ -45,11 +45,11 @@ const NavBar = () => {
         //   </ul>
         //   </div>
         // </nav>
-        <div class="topnav">
-          <a class="active navbar-brand" href="index.html">PhotoDex</a>
+        <div className="topnav">
+          <Link to="/home" className="active navbar-brand">PhotoDex</Link>
           <Link to="/upload">Upload</Link>
           <Link to="/myAlbums">My Albums</Link>
-          <div class="topnav-right">
+          <div className="topnav-right">
             <Link to="/login">login</Link>
             <Link onClick={logout}>Logout</Link>
             <Link to="/register">Register</Link>
