@@ -44,17 +44,19 @@ const Register = () => {
             console.log(err);
         }
     };
-
-    //test place
-   
-    //test end
     
     return (
-    <div className="register">
+    <div className="container-fluid">
+      <div className="col align-self-center">
         <br></br>
+        <h1>Sign up here</h1>
+        <div>
+          <img id = "x" src="example_images/ProOak.png"
+            width="350"
+            height="500"></img>
+        </div>
         <br></br>
-       <h1>Sign up here</h1>
-        <img id = "x" src="example_images/ProOak.png" alt='' />
+        <text>Enter Information Below</text>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -70,8 +72,10 @@ const Register = () => {
             value = {password} 
             onChange={(e) => setPassword(e.target.value)}/>
           <div className="password error"></div>
+          <br></br>
           <button>Sign Up</button>
         </form>
+        </div>
         </div>
     );
 }
