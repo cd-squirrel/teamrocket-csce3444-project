@@ -48,15 +48,19 @@ const Register = () => {
     return (
     <div className="container-fluid">
       <div className="col align-self-center">
+        <div class="contents">
+
+      <img src="example_images/regBack.jpg" id="bG"></img>
+
         <br></br>
-        <h1>Sign up here</h1>
+        <h1>Register</h1>
         <div>
           <img id = "x" src="example_images/ProOak.png"
-            width="350"
-            height="500"></img>
+            width="375"
+            height="550"></img>
         </div>
         <br></br>
-        <text>Enter Information Below</text>
+        <text>Enter Your Information Below</text>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -75,6 +79,7 @@ const Register = () => {
           <br></br>
           <button>Sign Up</button>
         </form>
+        </div>
         </div>
         </div>
     );
