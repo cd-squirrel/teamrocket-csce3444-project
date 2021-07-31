@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 // import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
-import "./components/navbar.css"
+import "./navbar.css"
 
 const NavBar = () => {
     const history = useHistory();
@@ -46,7 +46,7 @@ const NavBar = () => {
         //   </div>
         // </nav>
         <div className="topnav">
-          <Link to="/home" className="active navbar-brand">PhotoDex</Link>
+          <Link to="/" className="active navbar-brand">PhotoDex</Link>
           <Link to="/upload">Upload</Link>
           <Link to="/myAlbums">My Albums</Link>
           <div className="topnav-right">

@@ -55,7 +55,7 @@ const Register = () => {
         <br></br>
         <br></br>
        <h1>Sign up here</h1>
-        <div><img id = "x" src="example_images/ProOak.png"></img></div>
+        <div><img id = "x" src="example_images/ProOak.png" alt=''> </img></div>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
