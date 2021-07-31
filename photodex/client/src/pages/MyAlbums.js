@@ -26,7 +26,7 @@ const MyAlbums = () => {
       <div>
       {albums && albums.map(album => (
         <h3 className="album-link" key={album._id} >
-            <Link to={`/images/${album.owner}/${album._id}`}>{ album.name }</Link>
+            <Link to={`/images/${album.owner}/${album._id}/${album.name}/${album.description}`}>{ album.name }</Link>
         </h3>
       ))}
       </div>

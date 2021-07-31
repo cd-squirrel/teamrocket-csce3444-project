@@ -36,7 +36,7 @@ function App(){
             <Route exact path ="/upload">
               <Upload />
             </Route>
-            <Route exact path ="/images/:userId/:albumId">
+            <Route exact path ="/images/:userId/:albumId/:title/:desc">
               <AlbumImages />
             </Route>
           </Switch>
