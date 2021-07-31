@@ -46,25 +46,25 @@ const Login = () => {
     };
 
     return (
-    <div className="login">
+       <div className="login">
 
-      <img src="https://media.giphy.com/media/5UYPlKT14yBna/giphy.gif" id="bG"></img>
+      <img src="https://media.giphy.com/media/uFmH8za4E6M5STIiTu/giphy.gif" id="bG"></img>
 
         <br></br>
         <br></br>
 
         <div class="contents">
-        <h1>Why Hello There!</h1>
+        <h1>The Login Page, You Have Found</h1>
 
         <div>
-          <img id = "x" src="example_images/GBCHello.jpg"
+          <img id = "x" src="example_images/yoda.jpg"
             width="350"
-            height="500"></img>
+            height="350"></img>
         </div>
 
         <br></br>
 
-        <h2>Please Enter Login Info Below</h2>
+        <h2>In Below, Your Information Goes</h2>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -86,5 +86,7 @@ const Login = () => {
         </div>
     );
 }
+
+export default Login;
 
 export default Login;
