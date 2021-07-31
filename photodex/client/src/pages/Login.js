@@ -49,8 +49,16 @@ const Login = () => {
     <div className="login">
         <br></br>
         <br></br>
+        
         <h1>Welcome!</h1>
-        <h2>Log In</h2>
+        <div>
+          <img id = "x" src="example_images/GBCHello.jpg"
+            width="350"
+            height="500"></img>
+        </div>
+        <br></br>
+        <h2>Please Enter Login Info Below</h2>
+        
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
