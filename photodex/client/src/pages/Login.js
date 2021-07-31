@@ -47,18 +47,24 @@ const Login = () => {
 
     return (
     <div className="login">
+
+      <img src="https://media.giphy.com/media/5UYPlKT14yBna/giphy.gif" id="bG"></img>
+
         <br></br>
         <br></br>
-        
-        <h1>Welcome!</h1>
+
+        <div class="contents">
+        <h1>Why Hello There!</h1>
+
         <div>
           <img id = "x" src="example_images/GBCHello.jpg"
             width="350"
             height="500"></img>
         </div>
+
         <br></br>
+
         <h2>Please Enter Login Info Below</h2>
-        
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -76,6 +82,7 @@ const Login = () => {
           <div className="password error"></div>
           <button>Log In</button>
         </form>
+        </div>
         </div>
     );
 }
