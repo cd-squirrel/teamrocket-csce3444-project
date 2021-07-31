@@ -32,9 +32,9 @@ img {
 }
 
 /* Color the second (photography) section's background light gray for contrast. */
-#album {
+/*#album {
     background-color: whitesmoke;
-}
+}*/
 
 /* Space out the photos in our gallery a little. */
 .thumbnail {
