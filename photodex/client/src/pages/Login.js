@@ -46,8 +46,7 @@ const Login = () => {
     };
 
     return (
-    <div className="container-fluid">
-      <div className="col align-self-center">
+    <div className="login">
         <br></br>
         <br></br>
         <h1>Welcome!</h1>
@@ -69,7 +68,6 @@ const Login = () => {
           <div className="password error"></div>
           <button>Log In</button>
         </form>
-        </div>
         </div>
     );
 }

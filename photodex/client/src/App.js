@@ -1,3 +1,8 @@
+/*
+This is the main file for the React app.
+What this returns will be placed where <div id="root"></div> is in public/index.html
+
+*/
 import React from 'react';
 import './App.css';
 import NavBar from './NavBar';
@@ -13,8 +18,8 @@ function App(){
   return (
     <Router>
       <div className="app">
-        <NavBar />
-        <div className="content">
+        <NavBar /> 
+        <div className="content container-flex m-4 d-flex justify-content-center" id ="album"> 
           <Switch>
             <Route exact path ="/">
               <Home />

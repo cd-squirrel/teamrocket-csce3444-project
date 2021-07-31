@@ -8,7 +8,7 @@ const Images = (props) => {
           <>
             <a className='link' href={`/api/image/${id}`} target='_blank' rel='noreferrer'>
             <img
-              className='image'
+              className='image card'
               src={`/api/image/${id}`}
               alt=''
             />
