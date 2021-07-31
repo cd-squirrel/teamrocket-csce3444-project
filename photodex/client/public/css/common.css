@@ -16,9 +16,9 @@ html {
 }
 
 /* Color the main column background white. */
-.col {
+/*.col {
     background-color:#4fcbfc; /* white;*/
-}
+/*}*/
 
 .container-flex {
     min-height: 95vh; 
