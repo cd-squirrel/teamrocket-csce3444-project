@@ -110,8 +110,11 @@ useEffect( () => {
   
   if (loggedIn) {
     return (
-      <div className="uploads">
+       <div className="uploads">
         <div className="new-album">
+        <img src="https://media.giphy.com/media/hTDRXTqrGLwMracQNl/giphy.gif" id="bG"></img>
+
+        <div class="contents">
           <h2>Add a New Album</h2>
           <form onSubmit={handleAlbumSubmit}>
             <div className="album-name">
@@ -134,6 +137,8 @@ useEffect( () => {
             <button>Add Album</button>
          </form>
        </div> 
+
+       <div class="contents">
        <div className="image-upload">
          <h2>Image Upload</h2>
          {error && <div>{ error }</div>}
@@ -147,7 +152,7 @@ useEffect( () => {
                   onChange={(e) => setAlbumId(e.target.value)}>
                     <option key='' value=''>Choose album</option>
                     {albums.map( (album) => (
-                      <option key={album._id} value={album._id}>{album.name}</option>
+                      <option key={album._id} value={album._id}>{album.title}</option>
                     ))}
                 </select>
               </div>
@@ -169,6 +174,8 @@ useEffect( () => {
             </form>}
          </div>
       </div>
+      </div>
+     </div>
    );
   }
   else {
