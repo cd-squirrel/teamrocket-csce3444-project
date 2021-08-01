@@ -1,6 +1,6 @@
 //github: iamshaunjp/Complete-React-Tutorial
 
-import { useState, useEffect } from 'react';
+import {React, useState, useEffect } from 'react';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -8,7 +8,7 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const abortCont = new AbortController();
+    const abortCont = new window.AbortController();
 
     setTimeout(() => {
       fetch(url, 

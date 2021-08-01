@@ -5,24 +5,29 @@ What this returns will be placed where <div id="root"></div> is in public/index.
 */
 import React from 'react';
 import './App.css';
-import NavBar from './NavBar';
+import Navbar from './Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MyAlbums from './pages/MyAlbums';
 import Upload from './pages/Upload';
 import AlbumImages from './components/AlbumImages';
 import Home from './pages/Home';
+import Landing from './pages/landing';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App(){
   return (
     <Router>
       <div className="app">
-        <NavBar /> 
+        <Navbar /> 
         <div className="content container-flex m-4 d-flex justify-content-center" id ="album"> 
           <Switch>
             <Route exact path ="/">
               <Home />
+            </Route>
+            <Route exact path ="/landing">
+              <Landing />
             </Route>
             <Route exact path ="/login">
               <Login />

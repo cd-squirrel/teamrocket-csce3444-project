@@ -1,8 +1,8 @@
 import { Link, useHistory } from 'react-router-dom';
-// import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import React  from 'react';
 import "./navbar.css"
 
-const NavBar = () => {
+const Navbar = () => {
     const history = useHistory();
     
     const logout = async () => {
@@ -58,4 +58,4 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+export default Navbar;
