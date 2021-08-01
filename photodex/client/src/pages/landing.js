@@ -30,7 +30,6 @@ const WrapperImages = styled.section`
 
 const Landing = () => {
     const [images, setImages] = useState([]);
-    const [loaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
       fetchImages();
