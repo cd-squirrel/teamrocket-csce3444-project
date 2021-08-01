@@ -5,7 +5,7 @@ What this returns will be placed where <div id="root"></div> is in public/index.
 */
 import React from 'react';
 import './App.css';
-import NavBar from './NavBar';
+import NavBar from './Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MyAlbums from './pages/MyAlbums';
