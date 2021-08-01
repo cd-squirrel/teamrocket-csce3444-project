@@ -48,19 +48,20 @@ const Register = () => {
     return (
     <div className="container-fluid">
       <div className="col align-self-center">
-        <div class="contents">
+        <div className="contents">
 
-      <img src="example_images/regBack.jpg" id="bG"></img>
+      <img src="example_images/regBack.jpg" id="bG" alt=""></img>
 
         <br></br>
         <h1>Register</h1>
         <div>
           <img id = "x" src="example_images/ProOak2.png"
             width="375"
-            height="550"></img>
+            height="550"
+            alt=""></img>
         </div>
         <br></br>
-        <text>Enter Your Information Below</text>
+        <p>Enter Your Information Below</p>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
