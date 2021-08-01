@@ -48,7 +48,7 @@ const Login = () => {
     return (
        <div className="login">
 
-      <img src="https://media.giphy.com/media/uFmH8za4E6M5STIiTu/giphy.gif" id="bG" alt=""></img>
+      <img src="https://media.giphy.com/media/lrsH4bES40m27HMGtM/giphy.gif" id="bG" alt=""></img>
 
         <br></br>
         <br></br>
