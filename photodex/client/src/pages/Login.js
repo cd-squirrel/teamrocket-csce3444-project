@@ -48,18 +48,19 @@ const Login = () => {
     return (
        <div className="login">
 
-      <img src="https://media.giphy.com/media/uFmH8za4E6M5STIiTu/giphy.gif" id="bG"></img>
+      <img src="https://media.giphy.com/media/lrsH4bES40m27HMGtM/giphy.gif" id="bG" alt=""></img>
 
         <br></br>
         <br></br>
 
-        <div class="contents">
+        <div className="contents">
         <h1>The Login Page, You Have Found</h1>
 
         <div>
           <img id = "x" src="example_images/yoda.jpg"
             width="350"
-            height="350"></img>
+            height="350"
+            alt=""></img>
         </div>
 
         <br></br>

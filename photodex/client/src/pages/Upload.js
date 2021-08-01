@@ -26,7 +26,7 @@ const Upload = () => {
     const album = { title, description };
 
     try {
-      await fetch('/api/post/newAlbum', {
+      await fetch('/api/image/newAlbum', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(album)
@@ -68,7 +68,7 @@ const Upload = () => {
     fd.append('albumid', albumId);
 
     axios
-      .post(`/api/post/upload/`, fd )
+      .post(`/api/image/upload/`, fd )
       .then(({ data }) => {
         console.log('sent image to server');
         setImageId(data);
@@ -110,8 +110,11 @@ useEffect( () => {
   
   if (loggedIn) {
     return (
-      <div className="uploads">
+       <div className="uploads">
         <div className="new-album">
+        <img src="https://media.giphy.com/media/hTDRXTqrGLwMracQNl/giphy.gif" id="bG" alt=''></img>
+
+        <div class="contents">
           <h2>Add a New Album</h2>
           <form onSubmit={handleAlbumSubmit}>
             <div className="album-name">
@@ -134,6 +137,8 @@ useEffect( () => {
             <button>Add Album</button>
          </form>
        </div> 
+
+       <div class="contents">
        <div className="image-upload">
          <h2>Image Upload</h2>
          {error && <div>{ error }</div>}
@@ -169,6 +174,8 @@ useEffect( () => {
             </form>}
          </div>
       </div>
+      </div>
+     </div>
    );
   }
   else {

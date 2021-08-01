@@ -19,7 +19,11 @@ const MyAlbums = () => {
   }
   
   return (
-    <div className="album-list">
+     <div className="album-list">
+      <img src="https://media.giphy.com/media/9V7qW099yYNyrgagqF/giphy.gif" id="bG" alt=''></img>
+
+
+    <div class="contents">
       <h1>My Albums</h1>
       {error && <div>{ error }</div>}
       {isPending && <div>Loading . . .</div>}
@@ -30,6 +34,7 @@ const MyAlbums = () => {
         </h3>
       ))}
       </div>
+    </div>
     </div>
   );
 };
