@@ -26,7 +26,7 @@ const Upload = () => {
     const album = { title, description };
 
     try {
-      await fetch('/api/post/newAlbum', {
+      await fetch('/api/image/newAlbum', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(album)
@@ -68,7 +68,7 @@ const Upload = () => {
     fd.append('albumid', albumId);
 
     axios
-      .post(`/api/post/upload/`, fd )
+      .post(`/api/image/upload/`, fd )
       .then(({ data }) => {
         console.log('sent image to server');
         setImageId(data);
@@ -147,7 +147,7 @@ useEffect( () => {
                   onChange={(e) => setAlbumId(e.target.value)}>
                     <option key='' value=''>Choose album</option>
                     {albums.map( (album) => (
-                      <option key={album._id} value={album._id}>{album.title}</option>
+                      <option key={album._id} value={album._id}>{album.name}</option>
                     ))}
                 </select>
               </div>
