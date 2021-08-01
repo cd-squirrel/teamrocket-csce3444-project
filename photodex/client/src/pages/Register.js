@@ -55,7 +55,7 @@ const Register = () => {
         <br></br>
         <h1>Register</h1>
         <div>
-          <img id = "x" src="example_images/ProOak.png"
+          <img id = "x" src="example_images/ProOak2.png"
             width="375"
             height="550"></img>
         </div>
