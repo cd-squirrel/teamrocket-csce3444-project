@@ -112,3 +112,9 @@ div {
     width: 100%;
     padding: 40px;
   }
+
+  .image {
+    height:50%;
+    width:50%;
+    object-fit: cover;
+  }

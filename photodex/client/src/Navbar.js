@@ -47,6 +47,7 @@ const Navbar = () => {
         // </nav>
         <div className="topnav">
           <Link to="/" className="active navbar-brand">PhotoDex</Link>
+          <Link to="home" className="Home"> Home</Link>
           <Link to="/upload">Upload</Link>
           <Link to="/myAlbums">My Albums</Link>
           <div className="topnav-right">

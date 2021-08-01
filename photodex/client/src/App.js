@@ -24,10 +24,10 @@ function App(){
         <div className="content container-flex m-4 d-flex justify-content-center" id ="album"> 
           <Switch>
             <Route exact path ="/">
-              <Home />
-            </Route>
-            <Route exact path ="/landing">
               <Landing />
+            </Route>
+            <Route exact path ="/home">
+              <Home />
             </Route>
             <Route exact path ="/login">
               <Login />
