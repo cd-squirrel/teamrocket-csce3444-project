@@ -50,18 +50,18 @@ const Register = () => {
       <div className="col align-self-center">
         <div class="contents">
 
-      <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG"></img>
+      <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG" alt=''></img>
 
         <br></br>
         <h1>Wake Up Samurai</h1>
         <div>
-          <img id = "x" src="https://media.giphy.com/media/fA7rLtaJDIWEzU57CT/giphy.gif"
+          <img id = "x" src="https://media.giphy.com/media/fA7rLtaJDIWEzU57CT/giphy.gif" alt=''
             width="475"
             height="600"></img>
         </div>
         <h2>We've Got An Account To Burn</h2>
         <br></br>
-        <text>Enter Account Info</text>
+        <p>Enter Account Info</p>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 

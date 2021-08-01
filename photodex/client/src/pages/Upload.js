@@ -112,7 +112,7 @@ useEffect( () => {
     return (
        <div className="uploads">
         <div className="new-album">
-        <img src="https://media.giphy.com/media/hTDRXTqrGLwMracQNl/giphy.gif" id="bG"></img>
+        <img src="https://media.giphy.com/media/hTDRXTqrGLwMracQNl/giphy.gif" id="bG" alt=''></img>
 
         <div class="contents">
           <h2>Add a New Album</h2>
