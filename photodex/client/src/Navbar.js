@@ -1,5 +1,5 @@
 import { Link, useHistory } from 'react-router-dom';
-// import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+// import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'; wow
 import "./navbar.css"
 
 const NavBar = () => {
@@ -20,7 +20,8 @@ const NavBar = () => {
       };
 
     return (
-        // <nav className="navbar navbar-expand-md navbar-light bg-primary">
+
+        // <nav className="navbar navbar-expand-md navbar-light bg-primary"> 
         //   <a className="navbar-brand align-self-start"  href="index.html">PhotoDex</a>
         //   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
         //     <span className="navbar-toggler-icon"></span>

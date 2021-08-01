@@ -20,6 +20,10 @@ html {
     background-color:#4fcbfc; /* white;*/
 /*}*/
 
+.root {
+    background-color:#4fcbfc; /* white;*/
+}
+
 .container-flex {
     min-height: 95vh; 
     height: 95%;
@@ -67,7 +71,7 @@ div {
 }
 
 .col.main {
-    background-color: white;
+    background-color: whitesmoke;
     box-shadow: 0 0 50px rgba(17,17,17,0.5);
 }
 
@@ -86,7 +90,7 @@ div {
 
 .card{
   /* height:fit-content; */
-  width:30%;
+  width:300px;
   border:1px solid black;
   transition:.3s;
   margin: 3rem;
