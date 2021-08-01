@@ -48,20 +48,20 @@ const Register = () => {
     return (
     <div className="container-fluid">
       <div className="col align-self-center">
-        <div className="contents">
+        <div class="contents">
 
-      <img src="example_images/regBack.jpg" id="bG" alt=""></img>
+      <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG"></img>
 
         <br></br>
-        <h1>Register</h1>
+        <h1>Wake Up Samurai</h1>
         <div>
-          <img id = "x" src="example_images/ProOak2.png"
-            width="375"
-            height="550"
-            alt=""></img>
+          <img id = "x" src="https://media.giphy.com/media/fA7rLtaJDIWEzU57CT/giphy.gif"
+            width="475"
+            height="600"></img>
         </div>
+        <h2>We've Got An Account To Burn</h2>
         <br></br>
-        <p>Enter Your Information Below</p>
+        <text>Enter Account Info</text>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
