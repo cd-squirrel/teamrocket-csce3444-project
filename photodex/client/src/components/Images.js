@@ -2,7 +2,7 @@ import React  from 'react';
 
 
 const Images = (props) => {
-  const id = props.id;
+const id = props.id;
   
 
   return (

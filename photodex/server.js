@@ -9,7 +9,6 @@ const listUsersRoute = require('./routes/api/users');
 const listAlbumsPhotosRoute = require('./routes/api/listAlbumsPhotos');
 const { verifyJWT } = require('./middleware/verifyJWT');
 
-//vars for database connection
 const mongoose = require('mongoose');
 require('dotenv/config');
 

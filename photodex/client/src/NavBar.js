@@ -1,5 +1,9 @@
 import { Link, useHistory } from 'react-router-dom';
+<<<<<<< HEAD:photodex/client/src/Navbar.js
 import React  from 'react';
+=======
+// import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'; wow
+>>>>>>> ea6c2c1b2569d66c1dd606385b76ec06eef7dc1c:photodex/client/src/NavBar.js
 import "./navbar.css"
 
 const Navbar = () => {
@@ -20,7 +24,8 @@ const Navbar = () => {
       };
 
     return (
-        // <nav className="navbar navbar-expand-md navbar-light bg-primary">
+
+        // <nav className="navbar navbar-expand-md navbar-light bg-primary"> 
         //   <a className="navbar-brand align-self-start"  href="index.html">PhotoDex</a>
         //   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
         //     <span className="navbar-toggler-icon"></span>
@@ -59,4 +64,8 @@ const Navbar = () => {
     );
 };
 
+<<<<<<< HEAD:photodex/client/src/Navbar.js
 export default Navbar;
+=======
+export default NavBar;
+>>>>>>> ea6c2c1b2569d66c1dd606385b76ec06eef7dc1c:photodex/client/src/NavBar.js
