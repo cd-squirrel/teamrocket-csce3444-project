@@ -67,11 +67,13 @@ const Register = () => {
         <img src="example_images/card.jpg" id="regCard"></img>
         </div>
 
+         <div className="reg">
         <font color="white">Enter Account Info</font>
         <br></br>
         <br></br>
         <br></br>
-               
+
+         
         <form onSubmit={handleSubmit}>
           
           <input 
@@ -91,11 +93,13 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}/>
           <div className="password error"></div>
           </label>
+
           <br></br>
           <br></br>
          <button>Sign Up</button>        
         </form>
 
+        </div>
         </div>
         </div>
     );
