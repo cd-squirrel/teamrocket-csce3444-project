@@ -68,7 +68,7 @@ const Login = () => {
 
         <br></br>
 
-        <div class="regCard2">
+        <div className="regCard2">
         <img src="example_images/jedikey.png" id="regCard2" alt=""></img>
         </div>
 

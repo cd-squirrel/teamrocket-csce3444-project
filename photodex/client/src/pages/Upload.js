@@ -155,7 +155,7 @@ useEffect( () => {
                   onChange={(e) => setAlbumId(e.target.value)}>
                     <option key='' value=''>Choose album</option>
                     {albums.map( (album) => (
-                      <option key={album._id} value={album._id}>{album.title}</option>
+                      <option key={album._id} value={album._id}>{album.name}</option>
                     ))}
                 </select>
               </div>
