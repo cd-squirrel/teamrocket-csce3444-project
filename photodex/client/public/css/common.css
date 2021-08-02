@@ -154,7 +154,7 @@ div {
     margin-top: -1%;
     margin-left: 34.8%;
     position: absolute;
-    height: 258px;
+    height: 255px;
     width: 420px;
     z-index: -1;
 }
@@ -169,10 +169,15 @@ div {
 }
 
 label{
-    padding-top: 2px;
+    padding-top: 7px;
 }
 
 .reg{
     text-align: center;
 }
+
+input{
+    background: lightgray;
+    border: none;
+} 
 
