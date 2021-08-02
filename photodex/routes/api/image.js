@@ -202,6 +202,7 @@ router.post('/newAlbum', async (req,res) => {
       } catch(err) 
       {
           console.status(400).send(err);
+          console.log(err);
       }
 });
 
