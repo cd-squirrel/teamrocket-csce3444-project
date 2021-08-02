@@ -48,14 +48,14 @@ const Register = () => {
     return (
     <div className="container-fluid">
       <div className="col align-self-center">
-      <div class="contentss">
+      <div className="contentss">
         
-      <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG"></img>
+      <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG" alt=""></img>
 
         <br></br>
         <h1>Wake Up Samurai</h1>
         <div>
-          <img id = "x" src="https://media.giphy.com/media/fA7rLtaJDIWEzU57CT/giphy.gif"
+          <img id = "x" src="https://media.giphy.com/media/fA7rLtaJDIWEzU57CT/giphy.gif" alt=""
             width="475"
             height="600"></img>
         </div>
@@ -63,8 +63,8 @@ const Register = () => {
         </div>
         <br></br>
         
-        <div class="regCard">
-        <img src="example_images/card.jpg" id="regCard"></img>
+        <div className="regCard">
+        <img src="example_images/card.jpg" id="regCard" alt=""></img>
         </div>
 
          <div className="reg">
