@@ -107,7 +107,7 @@ div {
     top: 0; left:0;
     min-width: 100%; 
     min-height: 100%; 
-    z-index: -1;
+    z-index: -2;
 }
 
 .contents {
@@ -117,6 +117,7 @@ div {
     color: #f1f1f1;
     width: 100%;
     padding: 40px;
+    z-index: -1;
   }
 
 .albums-list {
@@ -132,4 +133,27 @@ div {
 }
 .lol{
     text-align: initial !important;
+}
+  .contentss {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 40%;
+    padding: 20px;
+    z-index: -1;
+  }
+
+#regCard {
+    margin-top: -1%;
+    margin-left: -14.5%;
+    position: absolute;
+    height: 258px;
+    width: 420px;
+    z-index: -1;
+}
+
+label{
+    padding-top: 2px;
 }
