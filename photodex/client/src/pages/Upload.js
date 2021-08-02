@@ -110,10 +110,11 @@ useEffect( () => {
   
   if (loggedIn) {
     return (
-       <div className="uploads">
+       <div className="uploads" div id ="upload_page">
         <div className="new-album">
         <img src="https://media.giphy.com/media/hTDRXTqrGLwMracQNl/giphy.gif" id="bG" alt=''></img>
 
+        <div class="col">
         <div class="contents">
           <h2>Add a New Album</h2>
           <form onSubmit={handleAlbumSubmit}>
@@ -136,8 +137,10 @@ useEffect( () => {
             </div>
             <button>Add Album</button>
          </form>
-       </div> 
+        </div> 
+       </div>
 
+        <div class = "col">
        <div class="contents">
        <div className="image-upload">
          <h2>Image Upload</h2>
@@ -172,6 +175,7 @@ useEffect( () => {
                 <button onClick={clickHandler}> Upload </button>
               </div>
             </form>}
+         </div>
          </div>
       </div>
       </div>

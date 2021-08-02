@@ -25,11 +25,13 @@ const AlbumImages = () => {
       <div className='images'>
       <h2>{ albumName }</h2>
       <p>{ albumDesc }</p>
-      {imageInfo && imageInfo.map(image => (
-        <div key={image.fileId}>
-          <Images id={image.fileId}/> 
-        </div>
-      ))}
+      <div className="row">
+        {imageInfo && imageInfo.map(image => (
+          <div key={image.fileId}>
+            <Images id={image.fileId}/> 
+          </div>
+        ))}
+      </div>
       </div>
     </div>
     

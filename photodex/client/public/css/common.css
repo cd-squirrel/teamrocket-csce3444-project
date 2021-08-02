@@ -50,7 +50,7 @@ img {
 }
 
 div {  
-    text-align: center;  
+
 }  
 
 #end-of-page {
@@ -91,10 +91,13 @@ div {
 .card{
   /* height:fit-content; */
   width:300px;
+  height:300px;
   border:1px solid black;
   transition:.3s;
   margin: 3rem;
   object-fit: cover;
+  background-color: grey;
+  object-position: 50% 50%;
 }
 
 #bG
@@ -108,7 +111,6 @@ div {
 }
 
 .contents {
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
     background: rgba(0, 0, 0, 0.5);
@@ -116,3 +118,18 @@ div {
     width: 100%;
     padding: 40px;
   }
+
+.albums-list {
+  margin-top: 150px;
+}
+
+.upload_page {
+    margin-top: 150px;
+}
+
+.image-section{
+    display:inline-block;
+}
+.lol{
+    text-align: initial !important;
+}
