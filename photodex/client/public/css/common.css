@@ -154,6 +154,15 @@ div {
     z-index: -1;
 }
 
+#regCard2 {
+    margin-top: -1%;
+    margin-left: -11.5%;
+    position: absolute;
+    height: 258px;
+    width: 420px;
+    z-index: -1;
+}
+
 label{
     padding-top: 2px;
 }
