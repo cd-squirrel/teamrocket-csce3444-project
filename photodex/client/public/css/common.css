@@ -86,7 +86,8 @@ div {
 
 .card{
   /* height:fit-content; */
-  width:30%;
+  width:300;
+  height:300;
   border:1px solid black;
   transition:.3s;
   margin: 3rem;

@@ -21,14 +21,14 @@ const Upload = () => {
   console.log(images)
   return(
     <div className="Landing">
-            <style>{ 'body {background-color: #5e90be'}</style>
+
             <img id = "x" src= "example_images/logo.png"
                 alt=""></img>
             <h5>Welcome to Photodex</h5>
             <div className="row">
                 { images.map(({id, src, title, description}) => 
-                  <div className='coulmn'>
-                    <img key={id} src={src} title={title} width='300' alt={description} className="img-fluid"/>
+                  <div className="card">
+                    <img key={id} src={src} title={title} alt={description}/>
                   </div>)
                 }
                 {/* <img src='example_images/img002.png' className="img-fluid" alt=''/> */}
