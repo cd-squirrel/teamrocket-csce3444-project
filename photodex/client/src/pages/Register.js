@@ -48,21 +48,32 @@ const Register = () => {
     return (
     <div className="container-fluid">
       <div className="col align-self-center">
-        <div class="contents">
-
-      <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG" alt=''></img>
+      <div class="contentss">
+        
+      <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG"></img>
 
         <br></br>
         <h1>Wake Up Samurai</h1>
         <div>
-          <img id = "x" src="https://media.giphy.com/media/fA7rLtaJDIWEzU57CT/giphy.gif" alt=''
+          <img id = "x" src="https://media.giphy.com/media/fA7rLtaJDIWEzU57CT/giphy.gif"
             width="475"
             height="600"></img>
         </div>
         <h2>We've Got An Account To Burn</h2>
+        </div>
         <br></br>
-        <p>Enter Account Info</p>
+        
+        <div class="regCard">
+        <img src="example_images/card.jpg" id="regCard"></img>
+        </div>
+
+        <font color="white">Enter Account Info</font>
+        <br></br>
+        <br></br>
+        <br></br>
+               
         <form onSubmit={handleSubmit}>
+          
           <input 
             type="text" 
             required
@@ -70,6 +81,8 @@ const Register = () => {
             value = {username} 
             onChange={(e) => setUsername(e.target.value)}/>
           <div className="username error"></div>
+          
+          <label>
           <input 
             type="password" 
             required  
@@ -77,10 +90,12 @@ const Register = () => {
             value = {password} 
             onChange={(e) => setPassword(e.target.value)}/>
           <div className="password error"></div>
+          </label>
           <br></br>
-          <button>Sign Up</button>
+          <br></br>
+         <button>Sign Up</button>        
         </form>
-        </div>
+
         </div>
         </div>
     );
