@@ -5,21 +5,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Color the background and add some space to the sides of the main column. */
-.container-fluid {
-    /*background-color: #4fcbfc;
-    /* We use !important to override the padding setting that Bootstrap already put for the container-fluid class. */
-    /*padding-left: 10% !important;
-    /*padding-right: 10% !important;
-    */
-
-}
-
-/* Color the main column background white. */
-/*.col {
-    background-color:#4fcbfc; /* white;*/
-/*}*/
-
 .root {
     background-color:#4fcbfc; /* white;*/
 }
@@ -35,11 +20,6 @@ img {
     box-shadow: 0px 4px 8px rgba(17,17,17,0.2);
 }
 
-/* Color the second (photography) section's background light gray for contrast. */
-/*#album {
-    background-color: whitesmoke;
-}*/
-
 /* Space out the photos in our gallery a little. */
 .thumbnail {
     margin: 1%;
@@ -48,10 +28,6 @@ img {
     width: 80%;
 
 }
-
-div {  
-
-}  
 
 #end-of-page {
     background-image: radial-gradient(#404040, #202020);
@@ -125,7 +101,6 @@ div {
     z-index: -1;
   }
 
-<<<<<<< HEAD
 .albums-list {
   margin-top: 150px;
 }
@@ -136,6 +111,7 @@ div {
 
 .image-section{
     display:inline-block;
+    text-align:initial !important;
 }
 .lol{
     text-align: initial !important;
@@ -177,15 +153,17 @@ label{
     text-align: center;
 }
 
+.logo{
+    text-align: center;
+}
+
 input{
     background: lightgray;
     border: none;
 } 
 
-=======
-  .image {
+.image {
     height:50%;
     width:50%;
     object-fit: cover;
-  }
->>>>>>> 1b4fc40f03491ac2ededf66611e1f788a66bf6b7
+}

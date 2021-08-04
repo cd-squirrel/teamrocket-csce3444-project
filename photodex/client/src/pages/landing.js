@@ -25,14 +25,12 @@ const Upload = () => {
             <img id = "x" src= "example_images/logo.png"
                 alt=""></img>
             <h5>Welcome to Photodex</h5>
-            <div className="row">
+            <div className="image-section"></div>
                 { images.map(({id, src, title, description}) => 
-                  <div className='coulmn'>
-                    <img key={id} src={src} title={title} width='300' alt={description} className="img-fluid"/>
-                  </div>)
+                  <a className='link' href={`/${src}`} target='_blank' rel='noreferrer'>
+                    <img key={id} src={src} title={title} alt={description} width = '300' height = '300' className="image card"/>
+                  </a>)
                 }
-                {/* <img src='example_images/img002.png' className="img-fluid" alt=''/> */}
-            </div>
       </div>
   )
 
