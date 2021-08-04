@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import useFetch from "../useFetch";
 import Login from "../pages/Login";
 
@@ -18,7 +18,7 @@ const AddAlbum = () => {
     const album = { name, description };
 
     try {
-      await fetch('/api/post/newAlbum', {
+      await fetch('/api/image/newAlbum', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(album)

@@ -21,7 +21,6 @@ function App(){
     <Router>
       <div className="app">
         <Navbar /> 
-        
           <Switch>
             <Route exact path ="/">
               <Landing />

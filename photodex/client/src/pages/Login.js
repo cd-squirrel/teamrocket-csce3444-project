@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { useState } from 'react';
-import React  from 'react';
+import React, { useState } from 'react';
 
 const Login = () => {
     const history = useHistory();
@@ -50,7 +49,7 @@ const Login = () => {
     return (
        <div className="login">
 
-      <img src="https://media.giphy.com/media/uFmH8za4E6M5STIiTu/giphy.gif" id="bG" alt=""></img>
+      <img src="https://media.giphy.com/media/lrsH4bES40m27HMGtM/giphy.gif" id="bG" alt=""></img>
 
         <br></br>
         <br></br>
@@ -60,14 +59,24 @@ const Login = () => {
 
         <div>
           <img id = "x" src="example_images/yoda.jpg"
-            width="350"
-            height="350"
+            width="450"
+            height="450"
             alt=""></img>
+        </div>
+        
+        <h2>In Below, Your Information Goes</h2>
         </div>
 
         <br></br>
 
-        <h2>In Below, Your Information Goes</h2>
+
+        <div className="regCard2">
+        <img src="example_images/jedikey.png" id="regCard2" alt=""></img>
+
+        </div>
+
+        <br></br>
+        <br></br>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -76,6 +85,7 @@ const Login = () => {
             value = {username} 
             onChange={(e) => setUsername(e.target.value)}/>
           <div className="username error"></div>
+          <label>
           <input 
             type="password" 
             required  
@@ -83,9 +93,11 @@ const Login = () => {
             value = {password} 
             onChange={(e) => setPassword(e.target.value)}/>
           <div className="password error"></div>
+          </label>
+          <br></br>
           <button>Log In</button>
         </form>
-        </div>
+        
         </div>
     );
 }

@@ -11,8 +11,7 @@ const useFetch = (url) => {
     const abortCont = new window.AbortController();
 
     setTimeout(() => {
-      fetch(url, 
-        { signal: abortCont.signal })
+      fetch(url, { signal: abortCont.signal })
       .then(res => {
         if (!res.ok) { // error coming back from server
           throw Error('could not fetch the data for that resource');

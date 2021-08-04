@@ -7,7 +7,6 @@ const imageRoute = require('./routes/api/image');
 const listUsersRoute = require('./routes/api/users');
 const listAlbumsPhotosRoute = require('./routes/api/listAlbumsPhotos');
 
-//vars for database connection
 const mongoose = require('mongoose');
 require('dotenv/config');
 
@@ -30,7 +29,7 @@ const connectDB = async () => {
 
 connectDB();
 
-app.listen(8000, () => console.log('Server started . . .'));
+app.listen(8055, () => console.log('Server started . . .'));
 
 //middleware
 app.use(logger('dev'));

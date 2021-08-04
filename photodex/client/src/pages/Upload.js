@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import useFetch from "../useFetch";
 import Login from "../pages/Login";
@@ -9,7 +9,7 @@ const Upload = () => {
   //ADD ALBUM
 
   //album state vars
-  const [title, setTitle] = useState('');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [albumId, setAlbumId] = useState('');
 
@@ -24,10 +24,10 @@ const Upload = () => {
   //album submit handler
   const handleAlbumSubmit = async (e) => {
     e.preventDefault();
-    const album = { title, description };
+    const album = { name, description };
 
     try {
-      await fetch('/api/post/newAlbum', {
+      await fetch('/api/image/newAlbum', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(album)
@@ -36,7 +36,7 @@ const Upload = () => {
       console.log(err);
     }
 
-    setTitle('');
+    setName('');
     setDescription('');
 
     window.location.reload(); //for refreshing album options in image upload form
@@ -69,7 +69,7 @@ const Upload = () => {
     fd.append('albumid', albumId);
 
     axios
-      .post(`/api/post/upload/`, fd )
+      .post(`/api/image/upload/`, fd )
       .then(({ data }) => {
         console.log('sent image to server');
         setImageId(data);
@@ -111,8 +111,12 @@ useEffect( () => {
   
   if (loggedIn) {
     return (
-      <div className="uploads">
+       <div className="uploads" id ="upload_page">
         <div className="new-album">
+        <img src="https://media.giphy.com/media/hTDRXTqrGLwMracQNl/giphy.gif" id="bG" alt=''></img>
+
+        <div className="col">
+        <div className="contents">
           <h2>Add a New Album</h2>
           <form onSubmit={handleAlbumSubmit}>
             <div className="album-name">
@@ -120,8 +124,8 @@ useEffect( () => {
                 type="text" 
                 required 
                 placeholder="Album Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="album-description">
@@ -134,7 +138,11 @@ useEffect( () => {
             </div>
             <button>Add Album</button>
          </form>
-       </div> 
+        </div> 
+       </div>
+
+        <div className = "col">
+       <div className="contents">
        <div className="image-upload">
          <h2>Image Upload</h2>
          {error && <div>{ error }</div>}
@@ -169,7 +177,10 @@ useEffect( () => {
               </div>
             </form>}
          </div>
+         </div>
       </div>
+      </div>
+     </div>
    );
   }
   else {
