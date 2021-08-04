@@ -2,12 +2,10 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-// require('dotenv').config();
 const authRoute = require('./routes/api/auth');
 const imageRoute = require('./routes/api/image');
 const listUsersRoute = require('./routes/api/users');
 const listAlbumsPhotosRoute = require('./routes/api/listAlbumsPhotos');
-const { verifyJWT } = require('./middleware/verifyJWT');
 
 //vars for database connection
 const mongoose = require('mongoose');

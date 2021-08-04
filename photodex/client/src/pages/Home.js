@@ -15,9 +15,9 @@ const Home = () => {
                   </div>
                 </div>
     
-                <h2>Photo Album</h2>
+                <h2>Welcome to PhotoDex</h2>
                 <p>
-                  Test photo album below.
+                  Organize your photos in the cloud.
                 </p>
     
                 <div className="row">

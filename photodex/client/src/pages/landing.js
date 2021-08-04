@@ -1,6 +1,6 @@
 import React from "react";
 
-const Upload = () => {
+const Landing = () => {
 
   const images = [
     // { id: 1, src: 'randomimages/img1.JPG', title: 'foo', description: 'bar' },
@@ -24,11 +24,11 @@ const Upload = () => {
             <style>{ 'body {background-color: #5e90be'}</style>
             <img id = "x" src= "example_images/logo.png"
                 alt=""></img>
-            <h5>Welcome to Photodex</h5>
+            <h5>Welcome to PhotoDex</h5>
             <div className="row">
                 { images.map(({id, src, title, description}) => 
-                  <div className='coulmn'>
-                    <img key={id} src={src} title={title} width='300' alt={description} className="img-fluid"/>
+                  <div className='column' key={{id}}>
+                    <img key={{id}} src={{src}} title={{title}} width='300' alt={{description}} className="img-fluid"/>
                   </div>)
                 }
                 {/* <img src='example_images/img002.png' className="img-fluid" alt=''/> */}
@@ -38,4 +38,4 @@ const Upload = () => {
 
 }
 
-export default Upload;
+export default Landing;

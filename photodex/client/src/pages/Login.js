@@ -42,7 +42,8 @@ const Login = () => {
                 handleErrors(data);
             }
         } catch(err) {
-            console.log(err);
+            const readErr = await err.json();
+            console.log(readErr);
         }
     };
 

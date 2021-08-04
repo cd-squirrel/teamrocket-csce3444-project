@@ -12,7 +12,7 @@ import MyAlbums from './pages/MyAlbums';
 import Upload from './pages/Upload';
 import AlbumImages from './components/AlbumImages';
 import Home from './pages/Home';
-import Landing from './pages/landing';
+import Landing from './pages/Landing';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ function App(){
     <Router>
       <div className="app">
         <Navbar /> 
-        <div className="content container-flex m-4 d-flex justify-content-center" id ="album"> 
+        
           <Switch>
             <Route exact path ="/">
               <Landing />
@@ -45,7 +45,6 @@ function App(){
               <AlbumImages />
             </Route>
           </Switch>
-        </div>
       </div>
     </Router>
   );
