@@ -1,3 +1,5 @@
+import React from "react";
+
 const Images = (props) => {
 const id = props.id;
   
@@ -5,7 +7,6 @@ const id = props.id;
   return (
     <div className='image-section'>
         {id ? (
-          <>
             <a className='link' href={`/api/image/${id}`} target='_blank' rel='noreferrer'>
             <img
               className='image card'
@@ -13,7 +14,6 @@ const id = props.id;
               alt=''
             />
             </a>
-          </>
         ) : (
           <p>no image</p>
         )}

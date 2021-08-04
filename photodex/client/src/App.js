@@ -5,7 +5,7 @@ What this returns will be placed where <div id="root"></div> is in public/index.
 */
 import React from 'react';
 import './App.css';
-import NavBar from './NavBar';
+import Navbar from './Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MyAlbums from './pages/MyAlbums';
@@ -18,8 +18,7 @@ function App(){
   return (
     <Router>
       <div className="app">
-        <NavBar /> 
-        <div className="content container-flex m-4 d-flex justify-content-center" id ="album"> 
+        <Navbar /> 
           <Switch>
             <Route exact path ="/">
               <Home />
@@ -40,7 +39,6 @@ function App(){
               <AlbumImages />
             </Route>
           </Switch>
-        </div>
       </div>
     </Router>
   );
