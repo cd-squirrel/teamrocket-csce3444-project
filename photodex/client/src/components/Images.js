@@ -6,12 +6,12 @@ const id = props.id;
   
 
   return (
-    <div className='image-section'>
+    <div classNameName='image-section'>
         {id ? (
           // <>
-            <a className='link' href={`/api/image/${id}`} target='_blank' rel='noreferrer'>
+            <a classNameName='link' href={`/api/image/${id}`} target='_blank' rel='noreferrer'>
             <img
-              className='image card'
+              classNameName='image card'
               src={`/api/image/${id}`}
               alt=''
             />

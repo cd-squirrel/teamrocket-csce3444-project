@@ -23,10 +23,10 @@ const AlbumImages = () => {
     <div>
       {error && <div>{ error }</div>}
       {isPending && <div>Loading . . .</div>}
-      <div className='images'>
+      <div classNameName='images'>
       <h2>{ albumName }</h2>
       <p>{ albumDesc }</p>
-      <div className="row">
+      <div classNameName="row">
         {imageInfo && imageInfo.map(image => (
           <div key={image.fileId}>
             <Images id={image.fileId}/> 

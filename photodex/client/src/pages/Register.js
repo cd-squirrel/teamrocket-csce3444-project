@@ -47,9 +47,9 @@ const Register = () => {
     };
     
     return (
-    <div className="container-fluid">
-      <div className="col align-self-center">
-      <div className="contentss">
+    <div classNameName="container-fluid">
+      <div classNameName="col align-self-center">
+      <div classNameName="contentss">
         
       <img src="https://media.giphy.com/media/4ZtY6pvsG2HdtPSKiS/giphy.gif" id="bG" alt=""></img>
 
@@ -64,11 +64,11 @@ const Register = () => {
         </div>
         <br></br>
         
-        <div className="regCard">
+        <div classNameName="regCard">
         <img src="example_images/card.jpg" id="regCard" alt=""></img>
         </div>
 
-         <div className="reg">
+         <div classNameName="reg">
         <font color="white">Enter Account Info</font>
         <br></br>
         <br></br>
@@ -83,7 +83,7 @@ const Register = () => {
             placeholder = "Username"
             value = {username} 
             onChange={(e) => setUsername(e.target.value)}/>
-          <div className="username error"></div>
+          <div classNameName="username error"></div>
           
           <label>
           <input 
@@ -92,7 +92,7 @@ const Register = () => {
             placeholder = "Password"
             value = {password} 
             onChange={(e) => setPassword(e.target.value)}/>
-          <div className="password error"></div>
+          <div classNameName="password error"></div>
           </label>
 
           <br></br>

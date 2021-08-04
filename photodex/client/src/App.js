@@ -19,9 +19,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App(){
   return (
     <Router>
-      <div className="app">
+      <div classNameName="app">
         <Navbar /> 
-        <div className="content container-flex m-4 d-flex justify-content-center" id ="album"> 
+        <div classNameName="content container-flex m-4 d-flex justify-content-center" id ="album"> 
           <Switch>
             <Route exact path ="/">
               <Landing />

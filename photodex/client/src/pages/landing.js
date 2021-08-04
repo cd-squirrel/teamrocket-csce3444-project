@@ -20,20 +20,21 @@ const Upload = () => {
 
   console.log(images)
   return(
-    <div className="Landing">
-            <style>{ 'body {background-color: #5e90be'}</style>
+    <div classNameName="Landing">
+            <style>{ 'body {background-color: #5e90be}' }</style>
             <img id = "x" src= "example_images/logo.png"
                 alt=""></img>
             <h5>Welcome to Photodex</h5>
-            <div className="image-section"></div>
-                { images.map(({id, src, title, description}) => 
-                  <a className='link' href={`/${src}`} target='_blank' rel='noreferrer'>
-                    <img key={id} src={src} title={title} alt={description} width = '300' height = '300' className="image card"/>
-                  </a>)
+                { images.map(({id, src, title, description} ) => (
+                <div classNameName = "image-section">
+                  <a classNameName='link' href={`/${src}`} target='_blank' rel='noreferrer'>
+                    <img key={id} src={src} title={title} alt={description} width = '300' height = '300' classNameName="image card"/>
+                  </a>
+                  </div>))
                 }
       </div>
-  )
+  );
 
-}
+};
 
 export default Upload;

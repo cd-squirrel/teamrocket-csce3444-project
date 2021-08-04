@@ -47,14 +47,14 @@ const Login = () => {
     };
 
     return (
-       <div className="login">
+       <div classNameName="login">
 
       <img src="https://media.giphy.com/media/lrsH4bES40m27HMGtM/giphy.gif" id="bG" alt=""></img>
 
         <br></br>
         <br></br>
 
-        <div className="contents">
+        <div classNameName="contents">
         <h1>The Login Page, You Have Found</h1>
 
         <div>
@@ -70,7 +70,7 @@ const Login = () => {
         <br></br>
 
 
-        <div className="regCard2">
+        <div classNameName="regCard2">
         <img src="example_images/jedikey.png" id="regCard2" alt=""></img>
 
         </div>
@@ -84,7 +84,7 @@ const Login = () => {
             placeholder = "Username"
             value = {username} 
             onChange={(e) => setUsername(e.target.value)}/>
-          <div className="username error"></div>
+          <div classNameName="username error"></div>
           <label>
           <input 
             type="password" 
@@ -92,7 +92,7 @@ const Login = () => {
             placeholder = "Password"
             value = {password} 
             onChange={(e) => setPassword(e.target.value)}/>
-          <div className="password error"></div>
+          <div classNameName="password error"></div>
           </label>
           <br></br>
           <button>Log In</button>
@@ -100,6 +100,6 @@ const Login = () => {
         
         </div>
     );
-}
+};
 
 export default Login;

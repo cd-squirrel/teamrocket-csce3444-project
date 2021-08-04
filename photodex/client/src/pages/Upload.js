@@ -111,15 +111,15 @@ useEffect( () => {
   
   if (loggedIn) {
     return (
-       <div className="uploads" id ="upload_page">
-        <div className="new-album">
+       <div classNameName="uploads" id ="upload_page">
+        <div classNameName="new-album">
         <img src="https://media.giphy.com/media/hTDRXTqrGLwMracQNl/giphy.gif" id="bG" alt=''></img>
 
-        <div className="col">
-        <div className="contents">
+        <div classNameName="col">
+        <div classNameName="contents">
           <h2>Add a New Album</h2>
           <form onSubmit={handleAlbumSubmit}>
-            <div className="album-name">
+            <div classNameName="album-name">
               <input 
                 type="text" 
                 required 
@@ -128,7 +128,7 @@ useEffect( () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div className="album-description">
+            <div classNameName="album-description">
               <textarea
                 required
                 placeholder="Description"
@@ -141,15 +141,15 @@ useEffect( () => {
         </div> 
        </div>
 
-        <div className = "col">
-       <div className="contents">
-       <div className="image-upload">
+        <div classNameName = "col">
+       <div classNameName="contents">
+       <div classNameName="image-upload">
          <h2>Image Upload</h2>
          {error && <div>{ error }</div>}
          {isPending && <div>Loading . . .</div>}
          {albums && 
             <form>
-              <div className="choose-album">
+              <div classNameName="choose-album">
                 <label>Choose album</label>
                 <select 
                   value = {albumId}
@@ -160,19 +160,19 @@ useEffect( () => {
                     ))}
                 </select>
               </div>
-              <div className="choose-image">
+              <div classNameName="choose-image">
                 <input
-                  className='file-input'
+                  classNameName='file-input'
                   onChange={handleFile}
                   type='file'
                   name='file'
                   id='file'/>
                 <label
-                  className={`inputlabel ${file && 'file-selected'}`}
+                  classNameName={`inputlabel ${file && 'file-selected'}`}
                   htmlFor='file'>
                 </label>
               </div>
-              <div className="submit">
+              <div classNameName="submit">
                 <button onClick={clickHandler}> Upload </button>
               </div>
             </form>}

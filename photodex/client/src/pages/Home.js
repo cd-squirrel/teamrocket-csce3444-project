@@ -3,15 +3,15 @@ import React  from 'react';
 
 const Home = () => {
     return (
-      <div className="home" >
+      <div classNameName="home" >
 
-        <div className="container-flex m-4 d-flex justify-content-center">
-            <div className="row" id ="album">
-              <div className="column-fluid m-2">
-                <div className="row" id="about">
-                  <div className="col-3">
+        <div classNameName="container-flex m-4 d-flex justify-content-center">
+            <div classNameName="row" id ="album">
+              <div classNameName="column-fluid m-2">
+                <div classNameName="row" id="about">
+                  <div classNameName="col-3">
                   </div>
-                  <div className="col-9">
+                  <div classNameName="col-9">
                   </div>
                 </div>
     
@@ -20,43 +20,43 @@ const Home = () => {
                   Organize your photo albums in the cloud.
                 </p>
     
-                <div className="row">
+                <div classNameName="row">
     
-                  <div className="col-sm" style={{ width: 14 + 'rem' }}>
-                    <div className="card">
-                      <img src="example_images/img006.png" className="img-fluid" alt=''/>
+                  <div classNameName="col-sm" style={{ width: 14 + 'rem' }}>
+                    <div classNameName="card">
+                      <img src="example_images/img006.png" classNameName="img-fluid" alt=''/>
                     </div>
                   </div>
                   
-                  <div className="col-sm" style={{ width: 14 + 'rem' }}>
-                    <div className="card">
-                      <img src="example_images/img006.png" className="img-fluid" alt=''/>
+                  <div classNameName="col-sm" style={{ width: 14 + 'rem' }}>
+                    <div classNameName="card">
+                      <img src="example_images/img006.png" classNameName="img-fluid" alt=''/>
                     </div>
                   </div>
     
-                  <div className="col-sm" style={{ width: 14 + 'rem' }}>
-                    <div className="card">
-                      <img src="example_images/img006.png" className="img-fluid" alt=''/>
+                  <div classNameName="col-sm" style={{ width: 14 + 'rem' }}>
+                    <div classNameName="card">
+                      <img src="example_images/img006.png" classNameName="img-fluid" alt=''/>
                     </div>
                   </div>
     
-                  <div className="w-100"></div>
+                  <div classNameName="w-100"></div>
 
-                  <div className="col-sm" style={{ width: 14 + 'rem' }}>
-                    <div className="card">
-                      <img src="example_images/img001.png" className="img-fluid" alt=''/>
+                  <div classNameName="col-sm" style={{ width: 14 + 'rem' }}>
+                    <div classNameName="card">
+                      <img src="example_images/img001.png" classNameName="img-fluid" alt=''/>
                     </div>
                   </div>
     
-                  <div className="col-sm" style={{ width: 14 + 'rem' }}>
-                    <div className="card">
-                      <img src="example_images/img002.png" className="img-fluid" alt=''/>
+                  <div classNameName="col-sm" style={{ width: 14 + 'rem' }}>
+                    <div classNameName="card">
+                      <img src="example_images/img002.png" classNameName="img-fluid" alt=''/>
                     </div>
                   </div>
     
-                  <div className="col-sm" style={{ width: 14 + 'rem' }}>
-                    <div className="card">
-                      <img src="example_images/img006.png" className="img-fluid" alt=''/>
+                  <div classNameName="col-sm" style={{ width: 14 + 'rem' }}>
+                    <div classNameName="card">
+                      <img src="example_images/img006.png" classNameName="img-fluid" alt=''/>
                     </div>
                   </div>
   

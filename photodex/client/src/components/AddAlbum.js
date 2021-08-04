@@ -37,8 +37,8 @@ const AddAlbum = () => {
 
   if (loggedIn) {
     return (
-      <div className="uploads">
-        <div className="new-album">
+      <div classNameName="uploads">
+        <div classNameName="new-album">
           <h2>Add a New Album</h2>
           <form onSubmit={handleSubmit}>
             <input 
@@ -57,7 +57,7 @@ const AddAlbum = () => {
             <button>Add Album</button>
          </form>
        </div> 
-       <div className="image-upload">
+       <div classNameName="image-upload">
          <h1>Image Upload</h1>
          {error && <div>{ error }</div>}
          {isPending && <div>Loading . . .</div>}
