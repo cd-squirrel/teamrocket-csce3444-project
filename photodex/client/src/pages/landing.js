@@ -27,8 +27,8 @@ const Landing = () => {
             <h5>Welcome to PhotoDex</h5>
             <div className="row">
                 { images.map(({id, src, title, description}) => 
-                  <div className='column' key={{id}}>
-                    <img key={{id}} src={{src}} title={{title}} width='300' alt={{description}} className="img-fluid"/>
+                  <div className='column' key={id}>
+                    <img key={id} src={src} title={title} width='300' alt={description} className="img-fluid"/>
                   </div>)
                 }
                 {/* <img src='example_images/img002.png' className="img-fluid" alt=''/> */}
