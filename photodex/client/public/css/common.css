@@ -125,6 +125,7 @@ div {
     z-index: -1;
   }
 
+<<<<<<< HEAD
 .albums-list {
   margin-top: 150px;
 }
@@ -181,3 +182,10 @@ input{
     border: none;
 } 
 
+=======
+  .image {
+    height:50%;
+    width:50%;
+    object-fit: cover;
+  }
+>>>>>>> 1b4fc40f03491ac2ededf66611e1f788a66bf6b7

@@ -1,8 +1,12 @@
 import { Link, useHistory } from 'react-router-dom';
+<<<<<<< HEAD:photodex/client/src/NavBar.js
 // import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'; wow
+=======
+import React  from 'react';
+>>>>>>> 1b4fc40f03491ac2ededf66611e1f788a66bf6b7:photodex/client/src/Navbar.js
 import "./navbar.css"
 
-const NavBar = () => {
+const Navbar = () => {
     const history = useHistory();
     
     const logout = async () => {
@@ -48,6 +52,7 @@ const NavBar = () => {
         // </nav>
         <div className="topnav">
           <Link to="/" className="active navbar-brand">PhotoDex</Link>
+          <Link to="home" className="Home"> Home</Link>
           <Link to="/upload">Upload</Link>
           <Link to="/myAlbums">My Albums</Link>
           <div className="topnav-right">
@@ -59,4 +64,8 @@ const NavBar = () => {
     );
 };
 
+<<<<<<< HEAD:photodex/client/src/NavBar.js
 export default NavBar;
+=======
+export default Navbar;
+>>>>>>> 1b4fc40f03491ac2ededf66611e1f788a66bf6b7:photodex/client/src/Navbar.js
