@@ -8,7 +8,7 @@ const Upload = () => {
   //ADD ALBUM
 
   //album state vars
-  const [title, setTitle] = useState('');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [albumId, setAlbumId] = useState('');
 
@@ -23,7 +23,7 @@ const Upload = () => {
   //album submit handler
   const handleAlbumSubmit = async (e) => {
     e.preventDefault();
-    const album = { title, description };
+    const album = { name, description };
 
     try {
       await fetch('/api/image/newAlbum', {
@@ -35,7 +35,7 @@ const Upload = () => {
       console.log(err);
     }
 
-    setTitle('');
+    setName('');
     setDescription('');
 
     window.location.reload(); //for refreshing album options in image upload form
@@ -123,8 +123,8 @@ useEffect( () => {
                 type="text" 
                 required 
                 placeholder="Album Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="album-description">

@@ -130,7 +130,7 @@ router.post('/upload/', uploadMiddleware, async (req, res) => {
         console.log(err);
         return res.json('caught error: ', err);
     }
-//album id
+
     console.log('album id: ', albumId);
     const photo = new Photo({
         owner: user._id,
