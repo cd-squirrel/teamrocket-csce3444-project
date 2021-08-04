@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import useFetch from "../useFetch";
 import Login from "../pages/Login";
-import React  from 'react';
 
 const Upload = () => {
 

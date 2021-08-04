@@ -1,6 +1,6 @@
 //github: iamshaunjp/Complete-React-Tutorial
 
-import {React, useState, useEffect } from 'react';
+import {useState, useEffect } from 'react';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
